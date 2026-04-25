@@ -2,621 +2,240 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>مغامرة أبطال الإيمان: تحدي الـ 30 سؤالاً</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@500;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحدي الأبطال - النسخة الاحترافية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #4f46e5;
-            --primary-light: #818cf8;
-            --secondary: #f59e0b;
-            --secondary-light: #fcd34d;
-            --success: #10b981;
-            --danger: #ef4444;
-            --background: #f8fafc;
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-        }
-
-        * {
-            box-sizing: border-box;
-            font-family: 'Cairo', sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-
         body {
-            margin: 0;
-            background-color: var(--background);
-            color: var(--text-main);
-            background-image: 
-                radial-gradient(at 0% 0%, hsla(253,16%,7%,0) 0, transparent 50%), 
-                radial-gradient(at 50% 0%, hsla(225,39%,30%,0) 0, transparent 50%), 
-                radial-gradient(at 100% 0%, hsla(339,49%,30%,0) 0, transparent 50%);
-            background-attachment: fixed;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
             min-height: 100vh;
         }
-
-        /* خلفية زخرفية ناعمة */
-        .bg-shapes {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            overflow: hidden;
-            background: linear-gradient(135deg, #e0e7ff 0%, #fef3c7 100%);
-        }
-
-        .shape {
-            position: absolute;
-            filter: blur(60px);
-            opacity: 0.6;
-            border-radius: 50%;
-            animation: float 10s infinite alternate ease-in-out;
-        }
-        
-        .shape-1 { width: 300px; height: 300px; background: #c7d2fe; top: -50px; right: -50px; }
-        .shape-2 { width: 400px; height: 400px; background: #fde68a; bottom: -100px; left: -100px; animation-delay: -5s; }
-
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(30px, 30px) scale(1.1); }
-        }
-
-        .header {
-            text-align: center;
-            padding: 2rem 1rem 1rem;
-            position: relative;
-            z-index: 10;
-        }
-
-        .header h1 {
-            font-size: clamp(1.8rem, 6vw, 3rem);
-            margin: 0;
-            font-family: 'Tajawal', sans-serif;
-            color: var(--primary);
-            text-shadow: 2px 2px 0px rgba(255,255,255,0.8);
-            display: inline-block;
-            position: relative;
-        }
-
-        .header p {
-            font-size: clamp(1rem, 4vw, 1.2rem);
-            color: var(--text-muted);
-            margin-top: 5px;
-            font-weight: 600;
-        }
-
-        .quiz-wrapper {
-            width: 92%;
-            max-width: 650px;
-            margin: 1rem auto 2rem;
-            background: var(--card-bg);
-            border-radius: 30px;
-            padding: 2rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            border: 2px solid rgba(255,255,255,0.5);
-            backdrop-filter: blur(10px);
-            position: relative;
-            z-index: 10;
-            flex-grow: 1;
-        }
-
-        /* شريط التقدم (Progress Bar) */
-        .progress-container {
-            width: 100%;
-            background-color: #e2e8f0;
-            border-radius: 20px;
-            height: 12px;
-            margin-bottom: 25px;
-            overflow: hidden;
-            display: none; /* يظهر فقط أثناء الأسئلة */
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
-            border-radius: 20px;
-            width: 0%;
-            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .name-input-group {
-            text-align: center;
-            padding: 1rem 0;
-        }
-
-        .icon-bounce {
-            font-size: 4rem;
-            color: var(--secondary);
-            margin-bottom: 15px;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-20px);}
-            60% {transform: translateY(-10px);}
-        }
-
-        input[type="text"] {
-            width: 100%;
-            max-width: 350px;
-            padding: 15px 20px;
-            border: 3px solid #e2e8f0;
-            border-radius: 15px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-align: center;
-            margin: 20px 0;
-            outline: none;
-            transition: all 0.3s ease;
-            background: #f8fafc;
-            color: var(--primary);
-        }
-
-        input[type="text"]:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
-            background: #fff;
-        }
-
-        .question-text {
-            font-size: clamp(1.2rem, 5vw, 1.5rem);
-            font-weight: 800;
-            margin-bottom: 1.8rem;
-            color: var(--text-main);
-            line-height: 1.5;
-            text-align: center;
-        }
-
-        .options-list {
-            display: grid;
-            gap: 15px;
-        }
-
-        .option-btn {
-            background: #ffffff;
-            padding: 1.2rem 1.5rem;
-            border-radius: 18px;
-            border: 2px solid #e2e8f0;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--text-main);
-            transition: all 0.3s ease;
-            text-align: right;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .option-btn:hover:not(:disabled) {
-            border-color: var(--primary-light);
-            background: #f5f8ff;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(79, 70, 229, 0.1);
-        }
-
-        .option-btn:active:not(:disabled) {
-            transform: translateY(0);
-        }
-
-        .option-btn.correct { 
-            background: #ecfdf5 !important; 
-            border-color: var(--success) !important; 
-            color: #065f46 !important; 
-        }
-        
-        .option-btn.wrong { 
-            background: #fef2f2 !important; 
-            border-color: var(--danger) !important; 
-            color: #991b1b !important; 
-            opacity: 0.7;
-        }
-
-        .feedback-area {
-            text-align: center;
-            margin-top: 20px;
-            min-height: 40px;
-            font-weight: 800;
-            font-size: 1.1rem;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .feedback-area.show {
-            opacity: 1;
-        }
-
-        .next-btn {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
-            color: white;
-            border: none;
-            padding: 1.2rem 2.5rem;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 800;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 15px;
-            transition: all 0.3s;
-            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .next-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 25px rgba(79, 70, 229, 0.4);
-        }
-
-        .next-btn:active {
-            transform: translateY(1px);
-        }
-
-        .score-circle-container {
-            position: relative;
-            width: 180px;
-            height: 180px;
-            margin: 20px auto;
-        }
-
-        /* دائرة النتيجة باستخدام Conic Gradient */
-        .score-circle {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: conic-gradient(var(--success) 0%, #e2e8f0 0%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            position: relative;
-        }
-
-        .score-circle::before {
-            content: "";
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            background: white;
-            border-radius: 50%;
-        }
-
-        .score-content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .score-percent {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--text-main);
-            line-height: 1;
-        }
-
-        .result-emoji {
-            font-size: 4rem;
-            margin-bottom: 10px;
-        }
-
-        .capture-box {
-            background: #fffbeb;
-            border: 2px dashed var(--secondary);
-            border-radius: 15px;
-            padding: 15px;
-            margin-top: 25px;
-            font-size: 1rem;
-            font-weight: 700;
-            color: #b45309;
-        }
-
-        @media (max-width: 480px) {
-            .quiz-wrapper { padding: 1.5rem 1rem; margin-top: 0.5rem; }
-            .option-btn { padding: 1rem; font-size: 1rem; }
-            .next-btn { padding: 1rem; font-size: 1.1rem; }
-        }
+        .animate-pop { animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        @keyframes pop { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        .circle-progress { transform: rotate(-90deg); transform-origin: 50% 50%; }
+        .btn-option { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+        .btn-option:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
     </style>
 </head>
-<body>
+<body class="flex items-center justify-center p-4">
 
-    <div class="bg-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-    </div>
-
-    <div class="header">
-        <h1>🌟 مغامرة الأبطال 🌟</h1>
-        <p>اختبر معلوماتك في رحاب القرآن والسنة</p>
-    </div>
-
-    <div class="quiz-wrapper animate__animated animate__fadeInUp" id="main-container">
+    <!-- Container -->
+    <div id="main-container" class="w-full max-w-xl bg-white rounded-[2.5rem] shadow-2xl p-6 md:p-8 relative overflow-hidden animate-pop">
         
-        <!-- شريط التقدم -->
-        <div class="progress-container" id="progress-container">
-            <div class="progress-bar" id="progress-bar"></div>
+        <!-- Decoration Elements -->
+        <div class="absolute -top-10 -left-10 w-32 h-32 bg-yellow-200 rounded-full blur-3xl opacity-40"></div>
+        <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-blue-200 rounded-full blur-3xl opacity-40"></div>
+
+        <!-- 1. Entry Screen -->
+        <div id="entry-screen" class="text-center space-y-6">
+            <div class="text-6xl mb-4">⭐</div>
+            <h1 class="text-3xl font-black text-blue-600 leading-tight">مرحباً بك في تحدي الأبطال!</h1>
+            <p class="text-gray-500 text-lg">اكتب اسمك يا بطل لتبدأ الرحلة</p>
+            <div class="space-y-4">
+                <input type="text" id="student-name" placeholder="اسمك الثلاثي هنا..." 
+                    class="w-full p-4 text-center text-xl border-4 border-blue-100 rounded-2xl focus:border-blue-400 focus:outline-none transition-all">
+                <button onclick="checkEligibility()" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-black py-4 px-8 rounded-2xl text-xl shadow-lg transform active:scale-95 transition-all">
+                    انطلق الآن! 🚀
+                </button>
+            </div>
         </div>
 
-        <!-- شاشة البداية -->
-        <div id="intro-view" class="name-input-group">
-            <i class="fas fa-crown icon-bounce"></i>
-            <h2 style="color: var(--primary); font-family: 'Tajawal'; font-size: 1.8rem; margin-bottom: 5px;">مستعد يا بطل؟</h2>
-            <p style="color: var(--text-muted); font-weight: 600;">سيتم اختيار 5 أسئلة عشوائية من أصل 30 سؤالاً!</p>
-            <input type="text" id="student-name" placeholder="اكتب اسمك الثلاثي هنا..." autocomplete="off">
-            <button class="next-btn" onclick="startQuiz()">
-                ابدأ التحدي الآن <i class="fas fa-rocket"></i>
-            </button>
+        <!-- 2. Already Taken Screen -->
+        <div id="already-taken-screen" class="hidden text-center space-y-6">
+            <div class="text-7xl mb-4">🚫</div>
+            <h2 class="text-2xl font-black text-red-500">عفواً يا بطل!</h2>
+            <p class="text-gray-600 text-lg leading-relaxed">لقد قمت بإنهاء هذا الاختبار مسبقاً. لا يمكن إعادة المحاولة لضمان الأمانة، بالتوفيق في التحديات القادمة!</p>
         </div>
 
-        <!-- شاشة الأسئلة -->
-        <div id="quiz-view" style="display:none;">
-            <div id="current-question-container"></div>
-            <div id="feedback" class="feedback-area"></div>
-            <button id="next-q-btn" class="next-btn" style="display:none;" onclick="loadNextQuestion()">
-                السؤال التالي <i class="fas fa-arrow-left"></i>
-            </button>
-        </div>
-
-        <!-- شاشة النتيجة -->
-        <div id="result-view" style="display:none;" class="animate__animated animate__zoomIn">
-            <div class="result-emoji" id="final-emoji">🏆</div>
-            <h2 style="color: var(--primary); font-family:'Tajawal'; margin-bottom: 5px;">انتهى التحدي بنجاح!</h2>
-            <h3 id="display-name" style="color: var(--text-main); margin-top: 0; font-size: 1.5rem;"></h3>
-            
-            <div class="score-circle-container">
-                <div class="score-circle" id="score-circle-bg">
-                    <div class="score-content">
-                        <span class="score-percent" id="final-percent">0%</span>
-                        <span style="font-size: 0.9rem; color: var(--text-muted); font-weight: bold;">النتيجة</span>
-                    </div>
-                </div>
+        <!-- 3. Quiz Screen -->
+        <div id="quiz-screen" class="hidden">
+            <div class="flex justify-between items-center mb-6 bg-blue-50 p-3 rounded-2xl">
+                <span class="text-blue-600 font-bold text-lg">السؤال: <span id="q-counter">1</span>/10</span>
+                <span id="player-label" class="text-blue-400 font-bold"></span>
             </div>
             
-            <p id="motivational-msg" style="font-size: 1.2rem; font-weight: 800; color: var(--primary);"></p>
+            <h3 id="question-text" class="text-2xl font-bold text-gray-800 mb-8 min-h-[80px] text-center leading-snug"></h3>
             
-            <div class="capture-box">
-                <i class="fas fa-camera"></i> التقط صورة للشاشة (Screenshot) وأرسلها لمعلمك لتسجيل نتيجتك الرائعة!
+            <div id="options-grid" class="grid grid-cols-1 gap-4">
+                <!-- Buttons injected here -->
+            </div>
+        </div>
+
+        <!-- 4. Result Screen -->
+        <div id="result-screen" class="hidden text-center space-y-6">
+            <h2 class="text-3xl font-black text-blue-700">نتيجتك النهائية</h2>
+            
+            <!-- Progress Circle -->
+            <div class="relative inline-flex items-center justify-center">
+                <svg class="w-48 h-48">
+                    <circle cx="96" cy="96" r="80" stroke="currentColor" stroke-width="12" fill="transparent" class="text-gray-100" />
+                    <circle id="progress-circle" cx="96" cy="96" r="80" stroke="currentColor" stroke-width="12" fill="transparent" 
+                        stroke-dasharray="502.6" stroke-dashoffset="502.6" class="text-green-500 circle-progress" stroke-linecap="round" />
+                </svg>
+                <div class="absolute text-4xl font-black text-gray-800" id="percentage-text">0%</div>
             </div>
 
-            <button class="next-btn" style="background: linear-gradient(135deg, #64748b, #475569); margin-top: 20px;" onclick="location.reload()">
-                إعادة التحدي بأسئلة مختلفة 🔄
-            </button>
+            <div class="bg-gray-50 rounded-3xl p-6 border-2 border-dashed border-gray-200">
+                <p class="text-xl font-bold text-gray-700 mb-2">البطل: <span id="final-name" class="text-blue-600 underline"></span></p>
+                <p id="motivational-msg" class="text-lg text-gray-600 italic font-medium"></p>
+            </div>
+
+            <p class="text-sm text-gray-400">💡 التقط صورة للشاشة وأرسلها لمعلمك الآن!</p>
         </div>
     </div>
 
     <script>
-        // بنك الأسئلة: 30 سؤالاً مطابقاً تماماً للملف المرفق نصاً ومعنى.
+        // --- 50 Questions Bank ---
         const questionBank = [
-            // سورة المسد (معلومات عامة)
-            { q: "ما هو عدد آيات سورة المسد؟", a: "5 آيات", options: ["3 آيات", "5 آيات", "6 آيات"] },
-            { q: "ما هو ترتيب سورة المسد في المصحف الشريف؟", a: "111", options: ["110", "111", "112"] },
-            { q: "كم عدد كلمات سورة المسد؟", a: "23 كلمة", options: ["22 كلمة", "23 كلمة", "25 كلمة"] },
-            { q: "أين نزلت سورة المسد؟", a: "مكية", options: ["مكية", "مدنية", "قدسية"] },
-            { q: "ما هو ترتيب سورة المسد في النزول؟", a: "رقم 6", options: ["رقم 1", "رقم 6", "رقم 10"] },
-            
-            // معاني الكلمات
-            { q: "ما معنى كلمة 'تبت'؟", a: "خسرت وهلكت", options: ["فازت ونجحت", "خسرت وهلكت", "استراحت ونامت"] },
-            { q: "ما معنى 'سيصلى' في السورة؟", a: "سيدخل أو يقاسي حرها", options: ["سيدخل أو يقاسي حرها", "سيهرب من النار", "سينجو منها"] },
-            { q: "ما المقصود بـ 'حمالة الحطب'؟", a: "زوجة أبي لهب التي تنقل الشوك وتوقد الفتنة", options: ["خادمة أبي لهب", "زوجة أبي لهب التي تنقل الشوك وتوقد الفتنة", "ابنة أبي لهب"] },
-            { q: "ما معنى 'جيدها'؟", a: "عنقها", options: ["يدها", "عنقها", "رأسها"] },
-            { q: "ما هو 'المسد'؟", a: "حبل محكم الفتل من الليف أو النار", options: ["خيط ناعم من الحرير", "حبل محكم الفتل من الليف أو النار", "سلسلة من الذهب خالص"] },
-            
-            // سبب النزول والتفسير
-            { q: "رداً على من نزلت سورة المسد؟", a: "أبي لهب", options: ["أبي جهل", "أبي لهب", "أمية بن خلف"] },
-            { q: "على أي جبل صعد النبي ﷺ ليدعو قريشاً قبل نزول السورة؟", a: "جبل الصفا", options: ["جبل أحد", "جبل النور", "جبل الصفا"] },
-            { q: "ماذا قال أبو لهب للنبي ﷺ مستهزئاً؟", a: "تباً لك ألهذا جمعتنا؟", options: ["تباً لك ألهذا جمعتنا؟", "من أنت؟", "أين مالي؟"] },
-            { q: "لماذا تعتبر سورة المسد إحدى معجزات القرآن؟", a: "لأنها أخبرت بموت أبي لهب وزوجته على الكفر قبل وفاتهما", options: ["لأنها أطول سورة", "لأنها أخبرت بموت أبي لهب وزوجته على الكفر قبل وفاتهما", "لأنها ذكرت الجبال"] },
-            { q: "ما تفسير (مَا أَغْنَى عَنْهُ مَالُهُ وَمَا كَسَبَ)؟", a: "لم ينفعه ماله الوفير ولا ما كسبه من جاه أو ولد", options: ["أن ماله زاد أضعافاً", "لم ينفعه ماله الوفير ولا ما كسبه من جاه أو ولد", "أنه أصبح أغنى رجل"] },
-            { q: "ما تفسير (سَيَصْلَى نَارًا ذَاتَ لَهَبٍ)؟", a: "سيدخل ناراً متأججة عظيمة اللهب والحرارة", options: ["سيدخل ناراً متأججة عظيمة اللهب والحرارة", "سيرى النار من بعيد", "سيعبر فوق النار"] },
-            { q: "ماذا كانت تفعل زوجة أبي لهب في الدنيا لإيذاء النبي ﷺ؟", a: "تضع الشوك في طريقه", options: ["تضع الشوك في طريقه", "تسرق أمواله", "تغلق بابها في وجهه"] },
-            { q: "قيل في التفسير إن زوجة أبي لهب كانت تمشي بـ...؟", a: "النميمة", options: ["الصدق", "النميمة", "الكرم"] },
-            { q: "ما تفسير (فِي جِيدِهَا حَبْلٌ مِّن مَّسَدٍ)؟", a: "في عنقها حبل من ليف أو حديد محكم الفتل تجر به في النار", options: ["في يدها إسورة من نار", "في عنقها حبل من ليف أو حديد محكم الفتل تجر به في النار", "في قدمها قيد من حديد"] },
-            
-            // الحديث الشريف وروايته
-            { q: "من هو الصحابي راوي حديث (يا غلام سم الله...)؟", a: "عمر بن أبي سلمة", options: ["أنس بن مالك", "عمر بن أبي سلمة", "أبو هريرة"] },
-            { q: "من أخرج (رواه) حديث آداب الطعام المذكور؟", a: "رواه البخاري ومسلم", options: ["رواه البخاري ومسلم", "رواه الترمذي", "رواه الإمام مالك"] },
-            { q: "أكمل الحديث: 'يا غلام، سمّ الله، وكل...'؟", a: "بيمينك", options: ["بيسارك", "بسرعة", "بيمينك"] },
-            { q: "أكمل الحديث: '...وكل مما...'؟", a: "يليك", options: ["خلفك", "أمامك", "يليك"] },
-            
-            // شرح الحديث وآداب الطعام
-            { q: "ماذا نقول إذا نسينا التسمية في أول الطعام وتذكرنا لاحقاً؟", a: "بسم الله في أوله وآخره", options: ["الحمد لله", "بسم الله في أوله وآخره", "نكمل الأكل ولا نقول شيئاً"] },
-            { q: "ما هو الدعاء المستحب قوله للبركة قبل الأكل؟", a: "اللهم بارك لنا فيما رزقتنا وقنا عذاب النار", options: ["اللهم بارك لنا فيما رزقتنا وقنا عذاب النار", "الحمد لله", "بسم الله أوله وآخره"] },
-            { q: "ماذا يُستحب أن يُقال عند شرب اللبن وأكل التمر؟", a: "اللهم بارك لنا فيه وزدنا منه", options: ["اللهم ارزقنا", "اللهم بارك لنا فيه وزدنا منه", "الحمد لله"] },
-            { q: "لماذا نغسل أيدينا قبل البدء بالأكل؟", a: "لتنظيفهما من الأوساخ وضمان النظافة الصحية", options: ["للتبريد", "لتنظيفهما من الأوساخ وضمان النظافة الصحية", "للعب بالماء"] },
-            { q: "ما هو هدي النبي ﷺ في عدد الأصابع المستخدمة للأكل؟", a: "الأكل بثلاث أصابع ولعقها بعد الفراغ", options: ["بأصبعين فقط", "الأكل بثلاث أصابع ولعقها بعد الفراغ", "بكل اليد"] },
-            { q: "ماذا كان يفعل النبي ﷺ إذا لم يشتهِ طعاماً؟", a: "تركه ولم يعبه", options: ["عابه وانتقده", "تركه ولم يعبه", "أجبر نفسه عليه"] },
-            { q: "ماذا نفعل باللقمة الساقطة بحسب السنة؟", a: "نمسح ما عليها من أذى ونأكلها وعدم تركها للشيطان", options: ["نرميها فوراً", "نمسح ما عليها من أذى ونأكلها وعدم تركها للشيطان", "نتركها للحيوانات"] },
-            { q: "كيف يكون الاعتدال في الأكل كما علمنا النبي ﷺ؟", a: "ثلث لطعامه، وثلث لشرابه، وثلث لنفسه", options: ["ملء البطن تماماً", "ثلث لطعامه، وثلث لشرابه، وثلث لنفسه", "الأكل حتى الشعور بالتعب"] },
-            { q: "ماذا نقول لمن أعد لنا الطعام؟", a: "اللهم أطعم من أطعمني واسقي من سقاني", options: ["طعامك لذيذ", "اللهم أطعم من أطعمني واسقي من سقاني", "شكراً جزيلاً"] },
-            { q: "ما هو دعاء الانتهاء من الأكل؟", a: "الحمد لله الذي أطعمنا وسقانا وجعلنا مسلمين", options: ["بسم الله", "الحمد لله الذي أطعمنا وسقانا وجعلنا مسلمين", "اللهم بارك لنا"] }
+            // سورة النصر
+            { q: "كم عدد آيات سورة النصر؟", a: ["3 آيات", "5 آيات", "7 آيات"], c: 0 },
+            { q: "سورة النصر هي سورة...", a: ["مكية", "مدنية", "بحرية"], c: 1 },
+            { q: "ترتيب سورة النصر في المصحف هو الرقم...", a: ["110", "114", "100"], c: 0 },
+            { q: "عدد كلمات سورة النصر هو...", a: ["15 كلمة", "19 كلمة", "25 كلمة"], c: 1 },
+            { q: "نزلت سورة النصر بعد سورة...", a: ["الفلق", "الإخلاص", "الكافرون"], c: 2 },
+            { q: "ما معنى 'الفتح' في السورة؟", a: ["فتح القفل", "فتح مكة", "فتح الكتاب"], c: 1 },
+            { q: "ما معنى كلمة 'أفواجاً'؟", a: ["جماعات كثيرة", "واحداً واحداً", "أشخاص قليلون"], c: 0 },
+            { q: "بماذا أمر الله النبي ﷺ عند النصر؟", a: ["بالنوم", "بالتسبيح والاستغفار", "بالرحيل"], c: 1 },
+            { q: "سورة النصر كانت علامة على قرب...", a: ["عيد الفطر", "وفاة النبي ﷺ", "نزول المطر"], c: 1 },
+            { q: "لماذا سميت سورة النصر بهذا الاسم؟", a: ["لأنها ذكرت نصر الله", "لأنها قصيرة", "لأنها جميلة"], c: 0 },
+            { q: "ما معنى 'فسبح بحمد ربك'؟", a: ["قل سبحان الله وبحمده", "اجرِ بسرعة", "اكتب الدروس"], c: 0 },
+            { q: "ما معنى 'واستغفره'؟", a: ["اطلب منه المغفرة", "اطلب منه الطعام", "اطلب منه النجاح"], c: 0 },
+            { q: "الله سبحانه 'تواباً' تعني أنه...", a: ["كثير التوبة والمغفرة", "يعاقب المخطئين", "يحب الصمت"], c: 0 },
+            { q: "أين نزلت سورة النصر؟", a: ["في مكة قبل الهجرة", "في المدينة المنورة", "في الطائف"], c: 1 },
+            { q: "الناس دخلوا في دين الله أفواجاً بعد...", a: ["فتح مكة", "غزوة أحد", "هجرة الحبشة"], c: 0 },
+            // الحديث الشريف
+            { q: "من هو راوي حديث بر الوالدين؟", a: ["أبو بكر الصديق", "أبو هريرة", "عمر بن الخطاب"], c: 1 },
+            { q: "من أحق الناس بحسن الصحبة؟", a: ["الأب", "الأم", "المعلم"], c: 1 },
+            { q: "كم مرة كرر النبي ﷺ كلمة 'أمك'؟", a: ["مرة واحدة", "مرتين", "ثلاث مرات"], c: 2 },
+            { q: "ماذا تعني 'حسن الصحبة'؟", a: ["الرفق واللين", "الغضب بسرعة", "الهروب"], c: 0 },
+            { q: "لماذا الأم أحق بالبر 3 مرات؟ لأنها تعبت في...", a: ["الطبخ", "الحمل والوضع والرضاعة", "التنظيف"], c: 1 },
+            { q: "متى ذكر النبي ﷺ 'أبوك' في الحديث؟", a: ["المرة الأولى", "المرة الرابعة", "المرة الثانية"], c: 1 },
+            { q: "الحديث مروي في 'متفق عليه' أي رواه...", a: ["البخاري ومسلم", "أحمد والترمذي", "النسائي"], c: 0 },
+            { q: "ما معنى 'الوهن' الذي يصيب الأم؟", a: ["القوة", "الضعف والتعب", "السرعة"], c: 1 },
+            { q: "بر الوالدين يأتي في الأهمية مباشرة بعد...", a: ["الصلاة", "توحيد الله", "الصدقة"], c: 1 },
+            { q: "تكرار كلمة 'أمك' هو تأكيد على...", a: ["عظم حقها", "صغر سنها", "اسمها"], c: 0 },
+            // أمثلة الصحابة
+            { q: "رأى ابن عمر رجلاً يحمل أمه حول الكعبة، هل وفى حقها؟", a: ["نعم تماماً", "ولا بطلقة واحدة", "وفى نصف حقها"], c: 1 },
+            { q: "من هو الصحابي الذي كان يدعو لأمه عند باب البيت؟", a: ["خالد بن الوليد", "أبو هريرة", "حمزة"], c: 1 },
+            { q: "ماذا كان يفعل محمد بن المنكدر لأمه؟", a: ["يدلك قدمها", "يشتري لها ذهباً", "يتركها"], c: 0 },
+            { q: "لماذا لم يأكل زين العابدين مع أمه في طبق واحد؟", a: ["لأنه شبعان", "خوفاً أن يسبق يدها لشيء اشتهته", "لأن الطبق صغير"], c: 1 },
+            { q: "سمع النبي ﷺ صوت حارثة بن النعمان يقرأ في...", a: ["المسجد", "الجنة", "السوق"], c: 1 },
+            { q: "بأي سبب دخل حارثة بن النعمان الجنة؟", a: ["بكثرة ماله", "ببره لأمه", "بشجاعته"], c: 1 },
+            { q: "ما معنى 'الزفرة الواحدة' التي ذكرها ابن عمر؟", a: ["طلقة من آلام الولادة", "نسمة هواء", "خطوة واحدة"], c: 0 },
+            { q: "أيهما فضل محمد بن المنكدر؟", a: ["قيام الليل", "تدليك قدم أمه", "السهر مع الأصدقاء"], c: 1 },
+            { q: "كان أبو هريرة يقول لأمه: رحمك الله كما...", a: ["أعطيتني المال", "ربيتني صغيراً", "علمتني السباحة"], c: 1 },
+            { q: "بر الوالدين هو...", a: ["طاعتهم في المعروف", "مخالفتهم", "تجاهلهم"], c: 0 },
+            // دعاء السوق
+            { q: "أين ورد دعاء دخول السوق؟", a: ["صحيح البخاري", "سنن الترمذي", "مسند أحمد"], c: 1 },
+            { q: "كم حسنة يكتبها الله لمن قرأ دعاء السوق؟", a: ["ألف حسنة", "مليون حسنة", "مئة حسنة"], c: 1 },
+            { q: "ما معنى 'يحيي ويميت'؟", a: ["هو الخالق المتحكم في الحياة", "اسم من أسماء الملائكة", "كلمة عادية"], c: 0 },
+            { q: "ما هي الجائزة الثالثة لدعاء السوق غير الحسنات ومحو السيئات؟", a: ["بيت في الجنة", "رفع مليون درجة", "زيادة المال"], c: 1 },
+            { q: "دعاء السوق يبدأ بـ...", a: ["سبحان الله", "الحمد لله", "لا إله إلا الله وحده لا شريك له"], c: 2 },
+            { q: "من روى دعاء السوق عن النبي ﷺ؟", a: ["عبد الله بن عمر", "عائشة", "أبو بكر"], c: 0 },
+            { q: "بيده الخير وهو على كل شيء...", a: ["بصير", "عليم", "قدير"], c: 2 },
+            { q: "الدعاء يقول: 'وهو حي لا...'", a: ["ينام", "يموت", "ينسى"], c: 1 },
+            { q: "كم سيئة يمحوها الله بدعاء السوق؟", a: ["ألف سيئة", "عشرة آلاف", "مليون سيئة"], c: 2 },
+            { q: "لماذا أجر دعاء السوق عظيم؟", a: ["لأن الناس في غفلة في السوق", "لأن السوق مكان واسع", "لأنه طويل"], c: 0 },
+            // متنوعة
+            { q: "سورة النصر تدعو النبي ﷺ لـ 'الاستغفار'، وهذا يعلمنا...", a: ["التواضع لله دائماً", "أننا نخطئ كثيراً", "الحزن"], c: 0 },
+            { q: "الصحابة كانوا يتسابقون في...", a: ["بر الوالدين", "جمع المال", "النوم"], c: 0 },
+            { q: "كلمة 'فسبح' تعني...", a: ["السباحة في الماء", "تنزيه الله وذكره", "اللعب"], c: 1 },
+            { q: "ما معنى 'فوج'؟", a: ["مجموعة كبيرة", "شخص واحد", "طير"], c: 0 },
+            { q: "إرضاء الوالدين هو طريق لـ...", a: ["الجنة", "السفر", "التعب"], c: 0 }
         ];
 
-        let currentQuestions = [];
+        let quizQuestions = [];
         let currentIndex = 0;
         let score = 0;
         let studentName = "";
-        const totalQuestions = 5; // يتم اختيار 5 أسئلة فقط
 
-        function startQuiz() {
+        // Check if already taken on load
+        window.onload = () => {
+            if (localStorage.getItem('hero_quiz_completed')) {
+                document.getElementById('entry-screen').classList.add('hidden');
+                document.getElementById('already-taken-screen').classList.remove('hidden');
+            }
+        };
+
+        function checkEligibility() {
             studentName = document.getElementById('student-name').value.trim();
-            if (!studentName) {
-                const inputField = document.getElementById('student-name');
-                inputField.style.borderColor = "var(--danger)";
-                inputField.classList.add('animate__animated', 'animate__headShake');
-                setTimeout(() => inputField.classList.remove('animate__animated', 'animate__headShake'), 1000);
+            if (studentName.length < 3) {
+                alert("برجاء كتابة اسمك الحقيقي يا بطل!");
                 return;
             }
             
-            // خلط الأسئلة واختيار 5 عشوائياً
-            currentQuestions = [...questionBank].sort(() => 0.5 - Math.random()).slice(0, totalQuestions);
+            // Start Game
+            document.getElementById('entry-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+            document.getElementById('player-label').innerText = studentName;
             
-            document.getElementById('intro-view').style.display = 'none';
-            document.getElementById('progress-container').style.display = 'block';
-            document.getElementById('quiz-view').style.display = 'block';
-            
-            updateProgressBar();
-            loadQuestion();
+            // Pick 10 random
+            quizQuestions = questionBank.sort(() => 0.5 - Math.random()).slice(0, 10);
+            showQuestion();
         }
 
-        function updateProgressBar() {
-            const progress = (currentIndex / totalQuestions) * 100;
-            document.getElementById('progress-bar').style.width = `${progress}%`;
-        }
-
-        function loadQuestion() {
-            const qData = currentQuestions[currentIndex];
-            const container = document.getElementById('current-question-container');
-            const feedback = document.getElementById('feedback');
+        function showQuestion() {
+            const q = quizQuestions[currentIndex];
+            document.getElementById('q-counter').innerText = currentIndex + 1;
+            document.getElementById('question-text').innerText = q.q;
             
-            feedback.innerText = "";
-            feedback.className = "feedback-area";
-            document.getElementById('next-q-btn').style.display = 'none';
-
-            // خلط الخيارات
-            let shuffledOptions = [...qData.options].sort(() => 0.5 - Math.random());
-
-            let optionsHtml = shuffledOptions.map((opt, i) => 
-                `<button class="option-btn animate__animated animate__fadeInUp" style="animation-delay: ${i * 0.1}s" onclick="checkAnswer(this, '${opt.replace(/'/g, "\\'")}', '${qData.a.replace(/'/g, "\\'")}')">
-                    <span>${opt}</span>
-                    <i class="far fa-circle" style="color: var(--text-muted); opacity: 0.5;"></i>
-                </button>`
-            ).join('');
-
-            container.innerHTML = `
-                <div class="animate__animated animate__fadeIn">
-                    <p style="font-weight:900; color:var(--primary-light); margin-bottom:10px; font-size:1rem;">
-                        <i class="fas fa-question-circle"></i> السؤال ${currentIndex + 1} من ${totalQuestions}
-                    </p>
-                    <div class="question-text">${qData.q}</div>
-                    <div class="options-list">${optionsHtml}</div>
-                </div>
-            `;
+            const grid = document.getElementById('options-grid');
+            grid.innerHTML = '';
             
-            updateProgressBar();
-        }
-
-        function checkAnswer(btn, selected, correct) {
-            const btns = document.querySelectorAll('.option-btn');
-            btns.forEach(b => {
-                b.disabled = true;
-                b.style.cursor = 'default';
+            q.a.forEach((option, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "btn-option bg-white border-4 border-blue-100 hover:border-blue-400 p-4 rounded-2xl text-lg font-bold text-gray-700 text-right";
+                btn.innerText = option;
+                btn.onclick = () => selectOption(idx);
+                grid.appendChild(btn);
             });
-            
-            const feedback = document.getElementById('feedback');
-            const icon = btn.querySelector('i');
-            
-            if (selected === correct) {
-                btn.classList.add('correct');
-                icon.className = "fas fa-check-circle";
-                icon.style.color = "var(--success)";
-                icon.style.opacity = "1";
+        }
+
+        function selectOption(idx) {
+            if (idx === quizQuestions[currentIndex].c) {
                 score++;
-                
-                feedback.innerHTML = `<span style="color:var(--success)"><i class="fas fa-star"></i> إجابة صحيحة يا بطل!</span>`;
-            } else {
-                btn.classList.add('wrong');
-                icon.className = "fas fa-times-circle";
-                icon.style.color = "var(--danger)";
-                icon.style.opacity = "1";
-                
-                // تحديد الإجابة الصحيحة
-                btns.forEach(b => {
-                    if(b.innerText.trim() === correct.trim()){
-                        b.classList.add('correct');
-                        const bIcon = b.querySelector('i');
-                        bIcon.className = "fas fa-check-circle";
-                        bIcon.style.color = "var(--success)";
-                        bIcon.style.opacity = "1";
-                    }
-                });
-
-                feedback.innerHTML = `<span style="color:var(--danger)">الإجابة الصحيحة هي: ${correct}</span>`;
             }
             
-            feedback.classList.add('show');
-            document.getElementById('next-q-btn').style.display = 'flex';
-            
-            if(currentIndex === totalQuestions - 1) {
-                document.getElementById('next-q-btn').innerHTML = `عرض النتيجة النهائية <i class="fas fa-trophy"></i>`;
-            }
-        }
-
-        function loadNextQuestion() {
             currentIndex++;
-            if (currentIndex < totalQuestions) {
-                loadQuestion();
+            if (currentIndex < 10) {
+                showQuestion();
             } else {
-                updateProgressBar(); // To fill it to 100%
-                setTimeout(showResult, 400); // slight delay for animation
+                finishQuiz();
             }
         }
 
-        function showResult() {
-            document.getElementById('quiz-view').style.display = 'none';
-            document.getElementById('progress-container').style.display = 'none';
-            document.getElementById('result-view').style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        function finishQuiz() {
+            localStorage.setItem('hero_quiz_completed', 'true');
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.remove('hidden');
             
-            const percent = (score / totalQuestions) * 100;
+            const percentage = (score / 10) * 100;
+            document.getElementById('final-name').innerText = studentName;
+            document.getElementById('percentage-text').innerText = percentage + "%";
             
-            // Animation for counter
-            let currentPercent = 0;
-            const percentEl = document.getElementById('final-percent');
-            const circleBg = document.getElementById('score-circle-bg');
-            
-            const timer = setInterval(() => {
-                currentPercent += 2;
-                percentEl.innerText = currentPercent + "%";
-                
-                // Update Conic Gradient based on color mapping
-                let color = "var(--success)";
-                if(percent < 60) color = "var(--danger)";
-                else if(percent < 80) color = "var(--secondary)";
-                
-                circleBg.style.background = `conic-gradient(${color} ${currentPercent * 3.6}deg, #e2e8f0 0deg)`;
+            // Progress Circle Logic
+            const circle = document.getElementById('progress-circle');
+            const radius = 80;
+            const circumference = 2 * Math.PI * radius;
+            const offset = circumference - (percentage / 100) * circumference;
+            circle.style.strokeDashoffset = offset;
 
-                if (currentPercent >= percent) {
-                    clearInterval(timer);
-                    percentEl.innerText = percent + "%";
-                }
-            }, 20);
-
-            document.getElementById('display-name').innerText = "أهلاً بالبطل: " + studentName;
-            
-            const msgEl = document.getElementById('motivational-msg');
-            const emojiEl = document.getElementById('final-emoji');
-            
-            if (percent === 100) {
-                emojiEl.innerText = "👑";
-                msgEl.innerText = "أنت عبقري ومذهل! لقد أتقنت كل شيء!";
-                msgEl.style.color = "var(--success)";
-            } else if (percent >= 80) {
-                emojiEl.innerText = "🌟";
-                msgEl.innerText = "رائع جداً! نتيجتك تدل على ذكائك وتركيزك.";
-                msgEl.style.color = "var(--primary)";
-            } else if (percent >= 60) {
-                emojiEl.innerText = "👏";
-                msgEl.innerText = "أحسنت يا بطل! تجاوزت الاختبار بنجاح.";
-                msgEl.style.color = "var(--secondary)";
+            // Motivational Message
+            const msg = document.getElementById('motivational-msg');
+            if (percentage === 100) {
+                msg.innerText = "أنت أسطورة حقيقية! ذكاء خارق وإيمان قوي، المعلم فخور بك جداً! 🌟";
+                msg.className += " text-green-600";
+            } else if (percentage >= 80) {
+                msg.innerText = "عمل رائع يا بطل المتميز! استمر في التألق والنجاح. 🚀";
+                msg.className += " text-blue-600";
+            } else if (percentage >= 50) {
+                msg.innerText = "أحسنت يا شجاع، لكن يمكنك أن تصبح أفضل. راجع المعلومات مرة أخرى! 📚";
+                msg.className += " text-orange-600";
             } else {
-                emojiEl.innerText = "📚";
-                msgEl.innerText = "بداية جيدة! اقرأ الدرس مرة أخرى وستحقق 100% في المحاولة القادمة.";
-                msgEl.style.color = "var(--danger)";
+                msg.innerText = "لا بأس يا بطل، المحاولة هي طريق النجاح. اقرأ السيرة والحديث أكثر وستنجح! 💪";
+                msg.className += " text-red-600";
             }
         }
     </script>
