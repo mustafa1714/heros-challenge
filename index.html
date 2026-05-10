@@ -3,32 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اختبار رحلة المعرفة - سورة الكافرون والحديث الشريف</title>
+    <title>اختبار رحلة المعرفة - سورة الكوثر والذكر والدعاء</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Tajawal', sans-serif;
-            background-color: #f0f9ff;
+            background-color: #f8fafc;
         }
         .gradient-bg {
-            background: linear-gradient(135deg, #0ea5e9 0%, #22c55e 100%);
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
         }
-        .option-card:hover {
+        .option-card:hover:not([disabled]) {
             transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-color: #a855f7;
         }
         .fade-in {
-            animation: fadeIn 0.5s ease-in;
+            animation: fadeIn 0.4s ease-out;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        /* Progress Circle Styles */
         .progress-ring__circle {
-            transition: stroke-dashoffset 0.8s ease-in-out, stroke 0.5s ease;
+            transition: stroke-dashoffset 1s ease-in-out, stroke 0.5s ease;
             transform: rotate(-90deg);
             transform-origin: 50% 50%;
         }
@@ -36,147 +35,158 @@
 </head>
 <body class="min-h-screen flex items-center justify-center p-4">
 
-    <div id="app" class="max-w-2xl w-full bg-white rounded-3xl shadow-2xl overflow-hidden">
+    <div id="app" class="max-w-2xl w-full bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
         <!-- Header -->
         <div class="gradient-bg p-6 text-white text-center">
-            <h1 class="text-2xl font-bold mb-2">🌟 اختبار رحلة المعرفة 🌟</h1>
-            <p class="text-sm opacity-90">سورة الكافرون • حديث القرآن • دعاء المريض</p>
+            <h1 class="text-2xl font-bold mb-1 text-white">✨ اختبار الأبطال  ✨</h1>
+            <p class="text-sm opacity-90">سورة الكوثر • حديث كلمتان خفيفتان على اللسان • دعاء رؤية الهلال</p>
         </div>
 
-        <!-- Login Screen -->
+        <!-- Start Screen -->
         <div id="login-screen" class="p-8">
             <div class="text-center mb-6">
-                <div class="inline-block p-4 bg-yellow-100 rounded-full mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                <div class="inline-block p-4 bg-purple-100 rounded-full mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                     </svg>
                 </div>
-                <h2 class="text-xl font-bold text-gray-800">أهلاً بك يا بطل!</h2>
-                <p class="text-gray-600 mt-2">من فضلك اكتب اسمك لتبدأ الاختبار</p>
+                <h2 class="text-2xl font-bold text-gray-800">مستعد يا بطل؟</h2>
             </div>
 
-            <!-- Warning Box -->
-            <div class="bg-red-50 border-r-4 border-red-500 p-4 mb-6 rounded-xl">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0">
-                        <svg class="h-5 w-5 text-red-500" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+            <!-- Pre-Quiz Warning -->
+            <div class="bg-amber-50 border-r-4 border-amber-500 p-4 mb-6 rounded-xl">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0 pt-0.5">
+                        <svg class="h-5 w-5 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
                         </svg>
                     </div>
                     <div class="mr-3">
-                        <p class="text-sm text-red-800 font-bold">تنبيه هام جداً:</p>
-                        <p class="text-xs text-red-700 leading-relaxed">ركز جيداً يا بطل، فالاختبار متاح لمرة واحدة فقط ولا يمكنك تكرار المحاولة بعد البدء!</p>
+                        <p class="text-sm text-amber-900 font-bold">تنويه هام قبل البدء:</p>
+                        <p class="text-xs text-amber-800 leading-relaxed mt-1">ركز جداً يا بطل، هذا الاختبار متاح لمرة واحدة فقط. لا يمكنك إعادة المحاولة بعد ضغط زر البداية!</p>
                     </div>
                 </div>
             </div>
 
             <div class="space-y-4">
+                <label class="block text-sm font-medium text-gray-700 mr-2">اسمك الرباعي:</label>
                 <input type="text" id="student-name" placeholder="اكتب اسمك هنا..." 
-                    class="w-full p-4 border-2 border-blue-100 rounded-2xl focus:border-blue-500 outline-none transition-colors text-center text-lg">
-                <button onclick="startQuiz()" class="w-full gradient-bg text-white font-bold py-4 rounded-2xl text-xl shadow-lg hover:opacity-90 transition-opacity">
-                    ابدأ الاختبار الآن 🚀
+                    class="w-full p-4 border-2 border-purple-50 rounded-2xl focus:border-purple-500 outline-none transition-all text-center text-lg bg-gray-50">
+                <button onclick="startQuiz()" class="w-full gradient-bg text-white font-bold py-4 rounded-2xl text-xl shadow-lg hover:brightness-110 active:scale-95 transition-all">
+                    ابدأ التحدي الآن 🚀
                 </button>
             </div>
         </div>
 
         <!-- Quiz Screen -->
         <div id="quiz-screen" class="hidden p-8">
-            <div class="flex justify-between items-center mb-6">
-                <span class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-bold" id="progress-text">سؤال 1 من 10</span>
-                <span class="bg-yellow-100 text-yellow-700 px-4 py-1 rounded-full text-sm font-bold" id="score-text">النقاط: 0</span>
+            <div class="flex justify-between items-center mb-8">
+                <div class="flex flex-col">
+                    <span class="text-xs text-gray-400 font-bold uppercase tracking-wider">التقدم</span>
+                    <span class="text-lg font-black text-purple-600" id="progress-text">1 / 10</span>
+                </div>
+                <div class="flex flex-col items-end">
+                    <span class="text-xs text-gray-400 font-bold uppercase tracking-wider">النقاط</span>
+                    <span class="text-lg font-black text-green-500" id="score-text">0</span>
+                </div>
             </div>
             
             <div id="question-container" class="fade-in">
-                <h3 id="question-text" class="text-xl font-bold text-gray-800 mb-8 leading-relaxed">جاري تحميل السؤال...</h3>
+                <div class="bg-purple-50 p-6 rounded-3xl mb-8">
+                    <h3 id="question-text" class="text-xl font-bold text-gray-800 leading-relaxed">جاري التحميل...</h3>
+                </div>
                 <div id="options-grid" class="grid grid-cols-1 gap-4">
-                    <!-- Options injected here -->
+                    <!-- Options -->
                 </div>
             </div>
         </div>
 
         <!-- Result Screen -->
         <div id="result-screen" class="hidden p-8 text-center fade-in">
-            <div id="result-emoji" class="text-6xl mb-4">🏆</div>
-            <h2 class="text-3xl font-bold text-gray-800 mb-2" id="result-title">أحسنت يا بطل!</h2>
+            <div id="result-emoji" class="text-6xl mb-2">🏆</div>
+            <h2 class="text-2xl font-bold text-gray-800" id="result-title">النتيجة النهائية</h2>
             
-            <!-- Progress Circle Container -->
-            <div class="relative flex items-center justify-center my-8">
-                <svg class="progress-ring" width="160" height="160">
-                    <circle class="text-gray-100" stroke-width="12" stroke="currentColor" fill="transparent" r="70" cx="80" cy="80"/>
-                    <circle id="progress-circle" class="progress-ring__circle" stroke-width="12" stroke-linecap="round" stroke="currentColor" fill="transparent" r="70" cx="80" cy="80"/>
+            <!-- Progress Circle -->
+            <div class="relative flex items-center justify-center my-6">
+                <svg width="180" height="180">
+                    <circle class="text-gray-100" stroke-width="12" stroke="currentColor" fill="transparent" r="75" cx="90" cy="90"/>
+                    <circle id="progress-circle" class="progress-ring__circle" stroke-width="12" stroke-linecap="round" stroke="currentColor" fill="transparent" r="75" cx="90" cy="90"/>
                 </svg>
                 <div class="absolute flex flex-col items-center">
-                    <span id="final-percentage" class="text-4xl font-black text-gray-800">0%</span>
-                    <span class="text-xs font-bold text-gray-500 uppercase tracking-widest">النتيجة</span>
+                    <span id="final-percentage" class="text-4xl font-black text-gray-800 tracking-tighter">0%</span>
                 </div>
             </div>
 
-            <!-- Prize Reminder Box -->
-            <div class="bg-blue-50 border-2 border-blue-200 rounded-2xl p-4 mb-6 shadow-sm">
-                <p class="text-blue-700 font-bold flex items-center justify-center gap-2">
-                    <span>📸</span>
-                    لا تنسَ تصوير الشاشة وإرسالها للمعلم للحصول على جائزتك!
+            <!-- Screenshot Reward Message -->
+            <div class="bg-indigo-50 border-2 border-dashed border-indigo-200 rounded-3xl p-5 mb-8">
+                <p class="text-indigo-800 font-bold flex flex-col items-center gap-2">
+                    <span class="text-3xl">📸 🎁</span>
+                    <span>صور هذه الشاشة الآن وأرسلها لمعلمك لتحصل على جائزتك الرائعة!</span>
                 </p>
             </div>
 
-            <p class="text-xl text-gray-600 mb-8" id="result-text">لقد أكملت الاختبار بنجاح</p>
-            
-            <p class="text-gray-400 italic mb-4">"خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ"</p>
+            <p class="text-lg text-gray-600 font-medium mb-6" id="result-text"></p>
+            <p class="text-gray-400 italic text-sm">"خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ"</p>
         </div>
     </div>
 
     <script>
-        const allQuestions = [
-            { q: "كم عدد آيات سورة الكافرون؟", options: ["٤ آيات", "٥ آيات", "٦ آيات", "٧ آيات"], correct: 2 },
-            { q: "ما هو ترتيب سورة الكافرون في المصحف؟", options: ["١٠٧", "١٠٨", "١٠٩", "١١٠"], correct: 2 },
-            { q: "سورة الكافرون هي سورة:", options: ["مكية", "مدنية"], correct: 0 },
-            { q: "نزلت سورة الكافرون بعد سورة:", options: ["الفاتحة", "الماعون", "الإخلاص", "الكوثر"], correct: 1 },
-            { q: "كم عدد كلمات سورة الكافرون؟", options: ["٢٠ كلمة", "٢٦ كلمة", "٣٠ كلمة", "١٥ كلمة"], correct: 1 },
-            { q: "تسمى سورة الكافرون بسورة:", options: ["المناجاة", "المفاصلة", "الحمد", "الفتح"], correct: 1 },
-            { q: "ما معنى 'مكية'؟", options: ["نزلت في المدينة", "نزلت في مكة", "نزلت في القدس"], correct: 1 },
-            { q: "لماذا نزلت سورة الكافرون؟", options: ["لتعليم الصلاة", "رداً على عرض المشركين بالمساومة في العبادة", "لوصف الجنة"], correct: 1 },
-            { q: "ماذا اقترح زعماء قريش على النبي ﷺ؟", options: ["أن يترك مكة", "أن يعبد آلهتهم عاماً ويعبدوا الله عاماً", "أن يعطوه مالاً"], correct: 1 },
-            { q: "من هم زعماء قريش الذين ذهبوا للنبي ﷺ؟", options: ["أبو بكر وعمر", "الوليد بن المغيرة والعاص بن وائل", "حمزة والعباس"], correct: 1 },
-            { q: "هل قبل النبي ﷺ عرض المشركين بالمساومة؟", options: ["نعم، وافق فوراً", "طلب مهلة للتفكير", "رفض العرض فوراً"], correct: 2 },
-            { q: "ما هو هدف قريش من 'العبادة التبادلية'؟", options: ["الوصول لحل وسط يرضي الطرفين", "الدخول في الإسلام", "الهجرة"], correct: 0 },
-            { q: "ماذا تعني {لَا أَعْبُدُ مَا تَعْبُدُونَ}؟", options: ["سأعبد آلهتكم لاحقاً", "أنا لا أعبد أصنامكم الآن ولا مستقبلاً", "أنا أحب أصنامكم"], correct: 1 },
-            { q: "إلى ماذا تدعو سورة الكافرون؟", options: ["التوحيد الخالص لله", "الشرك بالله", "حب المال"], correct: 0 },
-            { q: "تكرار الآيات في السورة يدل على:", options: ["النسيان", "التأكيد على البراءة من الكفر", "طول السورة"], correct: 1 },
-            { q: "ما معنى {لَكُمْ دِينُكُمْ وَلِيَ دِينِ}؟", options: ["الأديان متشابهة", "المفاصلة التامة بين الحق والباطل", "المشاركة في العبادة"], correct: 1 },
-            { q: "سورة الكافرون تعدل كم من القرآن الكريم؟", options: ["نصف القرآن", "ثلث القرآن", "ربع القرآن", "خمس القرآن"], correct: 2 },
-            { q: "بماذا أوصى النبي ﷺ عند قراءة السورة قبل النوم؟", options: ["أنها براءة من الشرك", "أنها تجلب الرزق", "أنها تطيل العمر"], correct: 0 },
-            { q: "تسمى السورة أيضاً 'المنابذة' و 'البراءة من الشرك'، صح أم خطأ؟", options: ["صح", "خطأ"], correct: 0 },
-            { q: "من قرأ سورة الكافرون تباعدت عنه:", options: ["الملائكة", "مردة الشياطين", "الطيور"], correct: 1 },
-            { q: "من هو راوي حديث (خيركم من تعلم القرآن وعلمه)؟", options: ["أبو هريرة", "عثمان بن عفان", "عمر بن الخطاب"], correct: 1 },
-            { q: "أفضل الناس عند الله هم الذين:", options: ["عندهم مال كثير", "ارتبطوا بالقرآن تعلماً وتعليماً", "عندهم شهرة"], correct: 1 },
-            { q: "ما معنى 'تعلم القرآن' في الحديث؟", options: ["حفظه فقط", "القراءة الصحيحة وفهم المعاني والعمل به", "وضعه في المكتبة"], correct: 1 },
-            { q: "كيف نطبق الحديث في حياتنا؟", options: ["بالاستمرار في التعلم والعمل بالقرآن ونشر الخير", "بالنوم كثيراً", "باللعب فقط"], correct: 0 },
-            { q: "شرف العلم في الحديث يأتي من شرف:", options: ["المال", "المعلوم (وهو كلام الله)", "البيت"], correct: 1 },
-            { q: "الحديث يجمع بين نفعين، هما:", options: ["نفع النفس ونفع المجتمع", "نفع الأكل ونفع الشرب", "نفع المال والجاه"], correct: 0 },
-            { q: "المتعلم ينفع نفسه بـ:", options: ["تزكية روحه", "شراء الألعاب", "النوم"], correct: 0 },
-            { q: "المعلم ينفع المجتمع بـ:", options: ["نشر النور والعلم", "إغلاق المدارس", "الصمت"], correct: 0 },
-            { q: "من ثمرات العمل بالقرآن نيل:", options: ["شفاعة القرآن يوم القيامة", "جائزة مالية", "سيارة جديدة"], correct: 0 },
-            { q: "ماذا يقال لقارئ القرآن في الجنة؟", options: ["اذهب للنوم", "اقرأ وارتقِ", "توقف عن الكلام"], correct: 1 },
-            { q: "ماذا يلبس والدا حافظ القرآن يوم القيامة؟", options: ["تاج الوقار", "خاتم ذهب", "وشاح حرير"], correct: 0 },
-            { q: "تعلم القرآن يرفع شأن المسلم عند الله، صح أم خطأ؟", options: ["صح", "خطأ"], correct: 0 },
-            { q: "كيف تصبح 'معلماً' للقرآن وأنت صغير؟", options: ["بإخبار صديقك أو أخيك الصغير بمعلومة تعلمتها", "بالجلوس وحيداً", "بالصراخ"], correct: 0 },
-            { q: "القرآن هو منهج حياة يشمل:", options: ["التعلّم والتعليم والعمل", "الحفظ فقط", "القراءة فقط"], correct: 0 },
-            { q: "ماذا نقول عند زيارة المريض؟", options: ["أهلاً بك", "أسأل الله العظيم رب العرش العظيم أن يشفيك", "وداعاً"], correct: 1 },
-            { q: "تكملة الدعاء: (اللهم رب الناس أذهب...)", options: ["الخوف", "البأس", "الحزن"], correct: 1 },
-            { q: "تكملة الدعاء: (اشفِ وأنت...)", options: ["القوي", "الشافي", "الرحيم"], correct: 1 },
-            { q: "ما معنى (لا يغادر سقماً)؟", options: ["لا يترك مرضاً", "لا يحب الناس", "لا يذهب للبيت"], correct: 0 },
-            { q: "ماذا نقول للمريض ليبشر بالخير? ", options: ["لا بأس طهور إن شاء الله", "أنت متعب جداً", "لا فائدة من الدواء"], correct: 0 },
-            { q: "من هو الشافي الحقيقي؟", options: ["الطبيب", "الله سبحانه وتعالى", "الدواء"], correct: 1 },
-            { q: "زيارة المريض والدعاء له من أخلاق المسلم، صح أم خطأ؟", options: ["صح", "خطأ"], correct: 0 },
-            { q: "كم مرة يكرر دعاء (أسأل الله العظيم رب العرش العظيم أن يشفيك)؟", options: ["مرة واحدة", "٧ مرات", "١٠ مرات"], correct: 1 },
-            { q: "سورة الكافرون تسمى سورة العقيدة، لماذا؟", options: ["لأنها تتحدث عن التوحيد والبراءة من الشرك", "لأنها طويلة", "لأنها في آخر القرآن"], correct: 0 },
-            { q: "الذي يعلّم غيره القرآن ينال أجراً كبيراً، صح أم خطأ؟", options: ["صح", "خطأ"], correct: 0 },
-            { q: "ورد يومي من القرآن (ولو صفحة واحدة) يساعدنا على:", options: ["نسيان القرآن", "البركة في الوقت والعمل", "التعب"], correct: 1 },
-            { q: "أبرز فضائل سورة الكافرون أنها براءة من:", options: ["الشرك", "الكذب", "السرقة"], correct: 0 },
-            { q: "معنى (تعدل ربع القرآن) أي في:", options: ["الحجم", "الأجر والموضوعات", "عدد الحروف"], correct: 1 },
-            { q: "القرآن يجعل قلب المسلم مليئاً بـ:", options: ["الخوف", "السكينة والنور", "الظلام"], correct: 1 },
-            { q: "أخلاق القرآن تشمل:", options: ["الصدق وبر الوالدين", "الكذب والغش", "إيذاء الناس"], correct: 0 },
-            { q: "من هو 'خير الناس'؟", options: ["الأقوى", "الذي يتعلم القرآن ويعلمه", "الأغنى"], correct: 1 }
+        const quizData = [
+            // سورة الكوثر
+            { q: "ما هو ترتيب سورة الكوثر في المصحف الشريف؟", options: ["١٠٥", "١٠٧", "١٠٨", "١١٠"], correct: 2 },
+            { q: "سورة الكوثر هي سورة:", options: ["مكية", "مدنية"], correct: 0 },
+            { q: "كم عدد آيات سورة الكوثر؟", options: ["٣ آيات", "٤ آيات", "٥ آيات"], correct: 0 },
+            { q: "نزلت سورة الكوثر بعد سورة:", options: ["الفاتحة", "العاديات", "الماعون"], correct: 1 },
+            { q: "ما هو الكوثر؟", options: ["جبل في مكة", "نهر في الجنة", "بئر في المدينة"], correct: 1 },
+            { q: "ما هي أوصاف ماء الكوثر؟", options: ["أحمر وطعمه مر", "أشد بياضاً من اللبن وأحلى من العسل", "مثل ماء البحر"], correct: 1 },
+            { q: "لماذا حزن النبي ﷺ قبل نزول السورة؟", options: ["بسبب الجوع", "بسبب وفاة ابنيه القاسم وعبد الله", "بسبب السفر"], correct: 1 },
+            { q: "ماذا كان يطلق المشركون على النبي ﷺ للسخرية منه؟", options: ["الأبتر", "الغني", "القوي"], correct: 0 },
+            { q: "ما معنى كلمة 'الأبتر' عند المشركين؟", options: ["الشجاع", "المقطوع الذي ليس له أولاد يحملون اسمه", "الكريم"], correct: 1 },
+            { q: "من هو المشرك الذي استهزأ بالنبي ﷺ ووصفه بالأبتر؟", options: ["أبو جهل", "العاص بن وائل", "أبو لهب"], correct: 1 },
+            { q: "ماذا طلبت السورة من النبي ﷺ شكراً لله؟", options: ["النوم مبكراً", "الصلاة والذبح (النحر) لله وحده", "السفر للتجارة"], correct: 1 },
+            { q: "ما معنى كلمة 'انحر'؟", options: ["ازرع الأشجار", "اذبح الأضاحي ووزعها على الفقراء", "ابنِ المساجد"], correct: 1 },
+            { q: "من هو 'الأبتر' الحقيقي في نهاية السورة؟", options: ["النبي ﷺ", "الذي يكره النبي ﷺ (شانئك)", "المسلمون"], correct: 1 },
+            { q: "رائحة نهر الكوثر أطيب من:", options: ["الورد", "المسك", "الياسمين"], correct: 1 },
+            { q: "كم عدد كلمات سورة الكوثر؟", options: ["١٠ كلمات", "١٥ كلمة", "٢٠ كلمة"], correct: 0 },
+            { q: "الله يدافع عن النبي ﷺ دائماً، أي آية تدل على ذلك؟", options: ["إنا أعطيناك الكوثر", "فصل لربك وانحر", "إن شانئك هو الأبتر"], correct: 2 },
+            { q: "توزيع لحم الأضاحي يعلمنا:", options: ["الكرم ومساعدة الآخرين", "الكسل", "الخوف"], correct: 0 },
+            { q: "ما معنى 'شانئك'؟", options: ["صديقك", "مُبغضك أو الذي يكرهك", "جارك"], correct: 1 },
+            { q: "بماذا وصف الله عطاءه للنبي ﷺ؟", options: ["بالقليل", "بالخير الكثير (الكوثر)", "بالعادي"], correct: 1 },
+            { q: "اسم النبي ﷺ سيظل مرفوعاً ومحبوباً إلى:", options: ["يوم القيامة", "موته فقط", "سنة واحدة"], correct: 0 },
+
+            // حديث كلمتان خفيفتان
+            { q: "من هو راوي حديث 'كلمتان خفيفتان على اللسان'؟", options: ["أبو هريرة", "عمر بن الخطاب", "عثمان بن عفان"], correct: 0 },
+            { q: "ما هما الكلمتان اللتان يحبهما الرحمن؟", options: ["الحمد لله", "سبحان الله وبحمده، سبحان الله العظيم", "الله أكبر"], correct: 1 },
+            { q: "ما معنى 'خفيفتان على اللسان'؟", options: ["صعبتان في النطق", "سهلتان ولا تتطلبان جهداً", "تؤلمان اللسان"], correct: 1 },
+            { q: "ما معنى 'ثقيلتان في الميزان'؟", options: ["وزنهما كبير في الدنيا", "لهما أجر عظيم يثقل ميزان الحسنات", "ليس لهما أجر"], correct: 1 },
+            { q: "لماذا خص النبي ﷺ اسم 'الرحمن' في الحديث؟", options: ["لبيان سعة رحمته وثوابه الكبير", "لأنه اسم طويل", "لأنه اسم جديد"], correct: 0 },
+            { q: "ماذا يحدث لمن قال 'سبحان الله وبحمده' مائة مرة؟", options: ["يحصل على مال", "تُحط عنه خطاياه وإن كانت مثل زبد البحر", "يصبح قوياً"], correct: 1 },
+            { q: "ما هو ثواب من قال 'سبحان الله العظيم وبحمده'؟", options: ["يُبنى له بيت", "تُغرس له نخلة في الجنة", "يشتري سيارة"], correct: 1 },
+            { q: "أحب الكلام إلى الله تعالى هو:", options: ["القصص", "سبحان الله وبحمده", "الشعر"], correct: 1 },
+            { q: "من قال الذكر ١٠٠ مرة صباحاً ومساءً يكون يوم القيامة:", options: ["عادياً", "من أفضل الناس عملاً", "متعباً"], correct: 1 },
+            { q: "الذكر أحب إلى الله من إنفاق جبل من:", options: ["الفضة", "الذهب", "التراب"], correct: 1 },
+            { q: "ما معنى 'سبحان الله'؟", options: ["تنزيه الله عن كل نقص", "شكر الله", "طلب الرزق"], correct: 0 },
+            { q: "ما معنى 'وبحمده'؟", options: ["السكوت", "الثناء على الله بنعمه وأفضاله", "البكاء"], correct: 1 },
+            { q: "وصف الله بـ 'العظيم' يعني عظمة:", options: ["بيته", "ذاته وقدره ومنزلته", "خلقه فقط"], correct: 1 },
+            { q: "متى يُفضل قول 'سبحان الله وبحمده' مائة مرة؟", options: ["في الصباح والمساء", "عند النوم فقط", "مرة في السنة"], correct: 0 },
+            { q: "الذكر هو بديل لمن يصعب عليه:", options: ["الأكل", "قيام الليل والجهاد بالمال", "المشي"], correct: 1 },
+            { q: "أيهما أثقل في الميزان: الذهب أم الكلمات التي يحبها الرحمن؟", options: ["الذهب", "الكلمات (سبحان الله وبحمده...)", "كلاهما سواء"], correct: 1 },
+            { q: "ما معنى 'حطت عنه خطاياه'؟", options: ["زادت ذنوبه", "مُسحت وغُفرت ذنوبه", "بقيت كما هي"], correct: 1 },
+            { q: "ما هو 'زبد البحر'؟", options: ["السمك", "الرغوة البيضاء فوق الماء (دليل الكثرة)", "الرمل"], correct: 1 },
+            { q: "من الذي اصطفى الله له هذا الذكر؟", options: ["الملائكة", "الأشجار", "الجبال"], correct: 0 },
+            { q: "الذكر يغرس لنا في الجنة:", options: ["زهوراً", "نخيلاً", "بيوتاً"], correct: 1 },
+
+            // دعاء رؤية الهلال
+            { q: "ماذا نقول عند رؤية الهلال؟", options: ["سبحان الله", "اللهم أهله علينا بالأمن والإيمان...", "الحمد لله"], correct: 1 },
+            { q: "بماذا نسأل الله في دعاء الهلال؟", options: ["بالأمن والإيمان والسلامة والإسلام", "بالمال فقط", "بالسفر"], correct: 0 },
+            { q: "ماذا نخاطب الهلال في نهاية الدعاء؟", options: ["أنت جميل", "ربي وربك الله", "أنت بعيد"], correct: 1 },
+            { q: "ماذا يسمى الهلال في الدعاء؟", options: ["هلال حزن", "هلال رشد وخير", "هلال تعب"], correct: 1 },
+            { q: "متى نقرأ دعاء الهلال؟", options: ["كل ليلة", "عند بداية الشهر الهجري ورؤية القمر الجديد", "عند الكسوف"], correct: 1 },
+            { q: "الأمن والإيمان هما أساس:", options: ["الخوف", "الحياة السعيدة والمطمئنة", "اللعب"], correct: 1 },
+            { q: "رؤية الهلال تذكرنا بـ:", options: ["الوقت فقط", "قدرة الله وتنظيم الكون", "النوم"], correct: 1 },
+            { q: "كلمة 'أهله' تعني:", options: ["أطلعه علينا وبشرنا به", "أغلقه", "ابتعد عنه"], correct: 0 },
+            { q: "السلامة تعني السلامة من:", options: ["الأصدقاء", "الشرور والآفات والأمراض", "الماء"], correct: 1 },
+            { q: "الدعاء هو عبادة نتقرب بها إلى:", options: ["الناس", "الله سبحانه وتعالى", "القمر"], correct: 1 }
         ];
 
         let selectedQuestions = [];
@@ -185,121 +195,109 @@
         let studentName = "";
 
         function startQuiz() {
-            const nameInput = document.getElementById('student-name');
-            studentName = nameInput.value.trim();
-            
-            if (studentName === "") {
-                alert("من فضلك اكتب اسمك يا بطل!");
+            studentName = document.getElementById('student-name').value.trim();
+            if (!studentName) {
+                alert("اكتب اسمك يا بطل قبل البدء!");
                 return;
             }
 
-            if (localStorage.getItem('quiz_taken_' + studentName)) {
-                alert("لقد قمت بحل هذا الاختبار مسبقاً يا " + studentName + "!");
+            if (localStorage.getItem('quiz_v2_done_' + studentName)) {
+                alert("لقد قمت بحل هذا الاختبار مسبقاً! لا يمكن التكرار.");
                 return;
             }
 
-            selectedQuestions = shuffleArray([...allQuestions]).slice(0, 10);
-            
+            selectedQuestions = shuffleArray([...quizData]).slice(0, 10);
             document.getElementById('login-screen').classList.add('hidden');
             document.getElementById('quiz-screen').classList.remove('hidden');
-            
             showQuestion();
         }
 
         function showQuestion() {
             const q = selectedQuestions[currentQuestionIndex];
-            document.getElementById('progress-text').innerText = `سؤال ${currentQuestionIndex + 1} من 10`;
+            document.getElementById('progress-text').innerText = `${currentQuestionIndex + 1} / 10`;
             document.getElementById('question-text').innerText = q.q;
             
-            const optionsGrid = document.getElementById('options-grid');
-            optionsGrid.innerHTML = '';
+            const grid = document.getElementById('options-grid');
+            grid.innerHTML = '';
             
-            q.options.forEach((opt, index) => {
+            q.options.forEach((opt, i) => {
                 const btn = document.createElement('button');
-                btn.className = "option-card w-full p-5 text-right bg-white border-2 border-gray-100 rounded-2xl hover:border-blue-400 hover:bg-blue-50 transition-all text-lg font-medium text-gray-700 shadow-sm";
+                btn.className = "option-card w-full p-5 text-right bg-white border-2 border-gray-100 rounded-2xl transition-all text-lg font-bold text-gray-700 shadow-sm";
                 btn.innerText = opt;
-                btn.onclick = () => selectOption(index);
-                optionsGrid.appendChild(btn);
+                btn.onclick = () => checkAnswer(i);
+                grid.appendChild(btn);
             });
         }
 
-        function selectOption(index) {
+        function checkAnswer(idx) {
             const q = selectedQuestions[currentQuestionIndex];
-            const options = document.getElementById('options-grid').children;
+            const btns = document.getElementById('options-grid').children;
             
-            for (let btn of options) btn.disabled = true;
+            for (let b of btns) b.disabled = true;
 
-            if (index === q.correct) {
-                options[index].classList.add('bg-green-100', 'border-green-500', 'text-green-700');
+            if (idx === q.correct) {
+                btns[idx].classList.add('bg-green-100', 'border-green-500', 'text-green-700');
                 score++;
-                document.getElementById('score-text').innerText = `النقاط: ${score}`;
+                document.getElementById('score-text').innerText = score;
             } else {
-                options[index].classList.add('bg-red-100', 'border-red-500', 'text-red-700');
-                options[q.correct].classList.add('bg-green-100', 'border-green-500', 'text-green-700');
+                btns[idx].classList.add('bg-red-100', 'border-red-500', 'text-red-700');
+                btns[q.correct].classList.add('bg-green-100', 'border-green-500', 'text-green-700');
             }
 
             setTimeout(() => {
                 currentQuestionIndex++;
-                if (currentQuestionIndex < 10) {
-                    showQuestion();
-                } else {
-                    showResult();
-                }
-            }, 1200);
+                if (currentQuestionIndex < 10) showQuestion();
+                else finalize();
+            }, 1500);
         }
 
-        function setProgress(percent) {
-            const circle = document.getElementById('progress-circle');
-            const radius = circle.r.baseVal.value;
-            const circumference = radius * 2 * Math.PI;
-
-            circle.style.strokeDasharray = `${circumference} ${circumference}`;
-            const offset = circumference - (percent / 100 * circumference);
-            circle.style.strokeDashoffset = offset;
-
-            if (percent >= 70) {
-                circle.setAttribute('stroke', '#22c55e');
-            } else if (percent >= 50) {
-                circle.setAttribute('stroke', '#eab308');
-            } else {
-                circle.setAttribute('stroke', '#ef4444');
-            }
-        }
-
-        function showResult() {
+        function finalize() {
             document.getElementById('quiz-screen').classList.add('hidden');
             document.getElementById('result-screen').classList.remove('hidden');
             
-            const percentage = (score / 10) * 100;
-            document.getElementById('final-percentage').innerText = `${percentage}%`;
+            const pct = (score / 10) * 100;
+            document.getElementById('final-percentage').innerText = pct + "%";
             
             const title = document.getElementById('result-title');
+            const resTxt = document.getElementById('result-text');
             const emoji = document.getElementById('result-emoji');
             
-            if (percentage >= 90) {
-                title.innerText = `عبقري يا ${studentName}!`;
+            if (pct >= 90) {
+                title.innerText = "أنت عبقري ومميز جداً!";
+                resTxt.innerText = `ما شاء الله يا ${studentName}، نتيجتك مبهرة! أنت من خيار الناس الذين يتعلمون القرآن.`;
                 emoji.innerText = "👑";
-            } else if (percentage >= 70) {
-                title.innerText = `أحسنت جداً يا ${studentName}!`;
-                emoji.innerText = "🌟";
-            } else if (percentage >= 50) {
-                title.innerText = `جيد، استمر يا ${studentName}!`;
-                emoji.innerText = "👍";
+            } else if (pct >= 70) {
+                title.innerText = "بطل حقيقي!";
+                resTxt.innerText = `أحسنت يا ${studentName}، إجاباتك تدل على ذكائك واهتمامك. استمر في طلب العلم.`;
+                emoji.innerText = "⭐";
             } else {
-                title.innerText = `تحتاج للمراجعة يا ${studentName}`;
-                emoji.innerText = "📚";
+                title.innerText = "محاولة جيدة!";
+                resTxt.innerText = `يا ${studentName}، العلم يحتاج صبراً. راجع الدرس مرة أخرى وستكون أفضل في المرة القادمة!`;
+                emoji.innerText = "💪";
             }
 
-            setTimeout(() => setProgress(percentage), 300);
-            localStorage.setItem('quiz_taken_' + studentName, true);
+            setTimeout(() => drawCircle(pct), 300);
+            localStorage.setItem('quiz_v2_done_' + studentName, true);
         }
 
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
+        function drawCircle(pct) {
+            const circle = document.getElementById('progress-circle');
+            const radius = circle.r.baseVal.value;
+            const circumference = radius * 2 * Math.PI;
+            circle.style.strokeDasharray = `${circumference} ${circumference}`;
+            circle.style.strokeDashoffset = circumference - (pct / 100 * circumference);
+            
+            if (pct >= 70) circle.setAttribute('stroke', '#22c55e');
+            else if (pct >= 50) circle.setAttribute('stroke', '#f59e0b');
+            else circle.setAttribute('stroke', '#ef4444');
+        }
+
+        function shuffleArray(arr) {
+            for (let i = arr.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
+                [arr[i], arr[j]] = [arr[j], arr[i]];
             }
-            return array;
+            return arr;
         }
     </script>
 </body>
