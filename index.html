@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اختبار رحلة المعرفة - سورة الماعون والأخلاق والدعاء</title>
+    <title>اختبار أبطال الإسلام - رحلة الحج ومناسكها المباركة</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Tajawal', sans-serif;
-            background-color: #f0fdf4; /* خلفية خضراء مريحة ولطيفة */
+            background-color: #f0fdfa; /* خلفية خضراء مريحة ولطيفة تناسب أجواء الحج */
         }
         .gradient-bg {
-            background: linear-gradient(135deg, #0d9488 0%, #4f46e5 100%);
+            background: linear-gradient(135deg, #0f766e 0%, #b45309 100%); /* دمج بين أخضر الحج واللون الذهبي للأماكن المقدسة */
         }
         .option-card {
             transition: all 0.2s ease-in-out;
         }
         .option-card:hover:not([disabled]) {
             transform: translateY(-2px);
-            box-shadow: 0 8px 15px -3px rgba(13, 148, 136, 0.15);
-            border-color: #0d9488;
+            box-shadow: 0 8px 15px -3px rgba(15, 118, 110, 0.2);
+            border-color: #d97706;
         }
         .fade-in {
             animation: fadeIn 0.4s ease-out;
@@ -38,60 +38,58 @@
 </head>
 <body class="min-h-screen flex items-center justify-center p-4">
 
-    <!-- Custom Alert Modal (بديل عن alert المتصفح المزعج) -->
-    <div id="custom-alert" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-sm w-full p-6 text-center shadow-2xl fade-in">
-            <div class="text-5xl mb-3">⚠️</div>
-            <h3 class="text-xl font-bold text-gray-800 mb-2" id="alert-title">تنبيه</h3>
-            <p class="text-gray-600 mb-6" id="alert-message">يرجى كتابة اسمك أولاً يا بطل!</p>
-            <button onclick="closeAlert()" class="w-full py-3 bg-teal-600 text-white font-bold rounded-2xl shadow-lg hover:bg-teal-700 active:scale-95 transition-all">
-                موافق 👍
+    <!-- Custom Alert Modal (بديل عن alert المتصفح لتجربة طفل ممتازة) -->
+    <div id="custom-alert" class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 text-center shadow-2xl fade-in border-4 border-amber-500">
+            <div class="text-6xl mb-3">⚠️</div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2" id="alert-title">تنبيه يا بطل!</h3>
+            <p class="text-gray-600 mb-6" id="alert-message">يرجى كتابة اسمك أولاً لتبدأ الرحلة!</p>
+            <button onclick="closeAlert()" class="w-full py-3 bg-amber-600 text-white font-bold rounded-2xl shadow-lg hover:bg-amber-700 active:scale-95 transition-all text-lg">
+                موافق، سأكتبه الآن 👍
             </button>
         </div>
     </div>
 
-    <!-- Main Application Container -->
-    <div id="app" class="max-w-2xl w-full bg-white rounded-3xl shadow-2xl overflow-hidden border border-emerald-50">
+    <!-- Main Container -->
+    <div id="app" class="max-w-2xl w-full bg-white rounded-3xl shadow-2xl overflow-hidden border-2 border-amber-100">
         
-        <!-- Header -->
-        <div class="gradient-bg p-6 text-white text-center">
-            <h1 class="text-2xl font-black mb-1 text-white">✨ اختبار الأبطال الإلكتروني ✨</h1>
-            <p class="text-sm opacity-90">سورة الماعون • حديث حسن الخلق • دعاء يوم عرفة</p>
+        <!-- Header Image & Decoration -->
+        <div class="gradient-bg p-6 text-white text-center relative">
+            <div class="absolute top-2 right-4 text-3xl opacity-25">🕌</div>
+            <div class="absolute top-2 left-4 text-3xl opacity-25">🕋</div>
+            <h1 class="text-2xl font-black mb-1 text-white">✨ اختبار أبطال الإسلام: رحلة الحج ✨</h1>
+            <p class="text-sm opacity-90 font-medium">آيات الحج • حديث أفضل الأعمال • مناسك الحج الـ 12</p>
         </div>
 
         <!-- Start/Login Screen -->
         <div id="login-screen" class="p-8">
             <div class="text-center mb-6">
-                <div class="inline-block p-4 bg-teal-100 rounded-full mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
+                <div class="inline-block p-4 bg-amber-100 rounded-full mb-4">
+                    <span class="text-5xl">🕋</span>
                 </div>
-                <h2 class="text-2xl font-black text-gray-800">أهلاً بك في تحدي المعرفة!</h2>
-                <p class="text-gray-600 mt-2">استعد جيداً لتظهر مهاراتك الرائعة</p>
+                <h2 class="text-2xl font-black text-gray-800">مرحباً بك يا بطل الإسلام الصغير! 👋</h2>
+                <p class="text-gray-600 mt-2">هل أنت مستعد لمرافقتنا في رحلة الحج المباركة واختبار معلوماتك؟</p>
             </div>
 
             <!-- Pre-Quiz Critical Warning -->
             <div class="bg-rose-50 border-r-4 border-rose-500 p-4 mb-6 rounded-2xl">
                 <div class="flex items-start">
                     <div class="flex-shrink-0 pt-0.5">
-                        <svg class="h-6 w-6 text-rose-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
-                        </svg>
+                        <span class="text-2xl">⚠️</span>
                     </div>
                     <div class="mr-3">
-                        <p class="text-sm text-rose-950 font-black">تنويه هام جداً للأبطال:</p>
-                        <p class="text-xs text-rose-800 leading-relaxed mt-1 font-medium">يرجى التركيز والهدوء أثناء الحل؛ هذا الاختبار متاح لمرة واحدة فقط لكل طالب، ولن تتمكن من إعادة المحاولة بعد البدء!</p>
+                        <p class="text-sm text-rose-950 font-black">تنبيه هام جداً للأبطال:</p>
+                        <p class="text-xs text-rose-800 leading-relaxed mt-1 font-medium">ركز جيداً أثناء الحل، فهذا الاختبار متاح لمرة واحدة فقط لكل بطل، ولن تتمكن من إعادة المحاولة بعد ضغط زر البدء!</p>
                     </div>
                 </div>
             </div>
 
             <div class="space-y-4">
-                <label class="block text-sm font-bold text-gray-700 mr-1">اكتب اسمك الرباعي هنا:</label>
-                <input type="text" id="student-name" placeholder="مثال: أحمد محمد علي حسن..." 
-                    class="w-full p-4 border-2 border-teal-50 rounded-2xl focus:border-teal-500 focus:bg-white outline-none transition-all text-center text-lg bg-gray-50 font-bold text-gray-800">
-                <button onclick="startQuiz()" class="w-full gradient-bg text-white font-black py-4 rounded-2xl text-xl shadow-lg hover:brightness-110 active:scale-95 transition-all">
-                    ابدأ الاختبار الآن 🚀
+                <label class="block text-sm font-bold text-gray-700 mr-1">اكتب اسمك الرباعي هنا لتسجيل نتيجتك:</label>
+                <input type="text" id="student-name" placeholder="مثال: يوسف محمد علي أحمد..." 
+                    class="w-full p-4 border-2 border-teal-100 rounded-2xl focus:border-amber-500 focus:bg-white outline-none transition-all text-center text-lg bg-gray-50 font-bold text-gray-800">
+                <button onclick="startQuiz()" class="w-full gradient-bg text-white font-black py-4 rounded-2xl text-xl shadow-lg hover:brightness-110 active:scale-95 transition-all flex items-center justify-center gap-2">
+                    <span>لنبدأ رحلة الحج وننطلق!</span> 🚀
                 </button>
             </div>
         </div>
@@ -100,21 +98,22 @@
         <div id="quiz-screen" class="hidden p-8">
             <div class="flex justify-between items-center mb-8">
                 <div class="flex flex-col">
-                    <span class="text-xs text-gray-400 font-bold uppercase tracking-wider">السؤال الحالي</span>
-                    <span class="text-lg font-black text-teal-600" id="progress-text">1 / 10</span>
+                    <span class="text-xs text-gray-400 font-bold uppercase tracking-wider">السؤال الحالي 📌</span>
+                    <span class="text-lg font-black text-teal-700" id="progress-text">1 / 10</span>
                 </div>
                 <div class="flex flex-col items-end">
-                    <span class="text-xs text-gray-400 font-bold uppercase tracking-wider">النقاط الصحيحة</span>
-                    <span class="text-lg font-black text-emerald-500" id="score-text">0</span>
+                    <span class="text-xs text-gray-400 font-bold uppercase tracking-wider">الإجابات الصحيحة ⭐</span>
+                    <span class="text-lg font-black text-emerald-600" id="score-text">0</span>
                 </div>
             </div>
             
             <div id="question-container" class="fade-in">
-                <div class="bg-teal-50 p-6 rounded-3xl mb-8 border border-teal-100">
-                    <h3 id="question-text" class="text-xl font-bold text-gray-800 leading-relaxed text-right">جاري تحميل السؤال...</h3>
+                <div class="bg-teal-50 p-6 rounded-3xl mb-8 border border-teal-100 relative">
+                    <span class="absolute top-2 left-3 text-2xl" id="question-sticker">💡</span>
+                    <h3 id="question-text" class="text-xl font-bold text-gray-800 leading-relaxed text-right pl-6">جاري تحميل السؤال...</h3>
                 </div>
                 <div id="options-grid" class="grid grid-cols-1 gap-4">
-                    <!-- Options buttons will be injected dynamically -->
+                    <!-- Options buttons injected here -->
                 </div>
             </div>
         </div>
@@ -132,80 +131,82 @@
                 </svg>
                 <div class="absolute flex flex-col items-center">
                     <span id="final-percentage" class="text-4xl font-black text-gray-800">0%</span>
-                    <span class="text-xs font-bold text-gray-400 mt-1">المعدل الإجمالي</span>
+                    <span class="text-xs font-bold text-gray-400 mt-1">نسبة النجاح</span>
                 </div>
             </div>
 
-            <!-- Teacher Screenshot Prize Announcement -->
-            <div class="bg-teal-50 border-2 border-dashed border-teal-200 rounded-3xl p-5 mb-8">
-                <p class="text-teal-900 font-bold flex flex-col items-center gap-2">
-                    <span class="text-4xl">📸 🎁</span>
-                    <span class="text-base">يا بطل! قم بتصوير لقطة شاشة (Screenshot) لهذه الصفحة الآن وأرسلها لمعلمك مباشرةً لتستلم جائزتك الرائعة والمميزة!</span>
+            <!-- Teacher Screenshot Prize Announcement with Stickers -->
+            <div class="bg-amber-50 border-2 border-dashed border-amber-300 rounded-3xl p-5 mb-8 relative overflow-hidden">
+                <div class="absolute -bottom-2 -right-2 text-4xl opacity-10">🎁</div>
+                <div class="absolute -top-2 -left-2 text-4xl opacity-10">🥇</div>
+                <p class="text-amber-900 font-bold flex flex-col items-center gap-2">
+                    <span class="text-4xl animate-bounce">📸 🎁 ✨</span>
+                    <span class="text-base leading-relaxed">يا بطل! قم بتصوير لقطة شاشة (Screenshot) لهذه الصفحة الآن وأرسلها لمعلمك لتستلم جائزتك الرائعة والمميزة لرحلة الحج!</span>
                 </p>
             </div>
 
-            <p class="text-lg text-gray-600 font-bold mb-6 px-4" id="result-text"></p>
-            <p class="text-gray-400 italic text-sm">"إنَّ مِنْ أَحَبِّكُمْ إِلَيَّ، وَأَقْرَبِكُمْ مِنِّي مَجْلِسًا يَوْمَ الْقِيَامَةِ، أَحَاسِنُكُمْ أَخْلَاقًا"</p>
+            <p class="text-lg text-gray-600 font-bold mb-6 px-4 leading-relaxed" id="result-text"></p>
+            <p class="text-gray-400 italic text-sm">"وَأَذِّنْ فِي النَّاسِ بِالْحَجِّ يَأْتُوكَ رِجَالًا"</p>
         </div>
     </div>
 
     <script>
         const quizQuestions = [
-            // سورة الماعون
-            { q: "كم عدد آيات سورة الماعون؟", options: ["٥ آيات", "٦ آيات", "٧ آيات"], correct: 2 },
-            { q: "سورة الماعون هي سورة:", options: ["مكية", "مدنية"], correct: 0 },
-            { q: "نزلت سورة الماعون بعد سورة:", options: ["التكاثر", "الكوثر", "العاديات"], correct: 0 },
-            { q: "ما هو الغرض من الاستفهام في قوله تعالى {أرأيت الذي يكذب بالدين}؟", options: ["للخوف", "للتعجب والتشويق", "للغضب والإجبار"], correct: 1 },
-            { q: "ما معنى {يكذب بالدين} في سورة الماعون؟", options: ["يكذب في حديثه اليومي", "ينكر يوم الحساب والجزاء أو شريعة الدين", "لا يحب السفر خارج مدينته"], correct: 1 },
-            { q: "ما معنى كلمة {يدع} في قوله تعالى {فذلك الذي يدع اليتيم}؟", options: ["يدعو له بالخير والتوفيق", "يدفعه بعنف وقسوة ويطرده بغلظة ويظلمه", "يلعب معه ويسعده"], correct: 1 },
-            { q: "اليتيم هو الطفل الذي:", options: ["مات والده وهو صغير", "سافر والده للتجارة", "يدرس خارج بلده"], correct: 0 },
-            { q: "ما معنى قوله تعالى {ولا يحض على طعام المسكين}؟", options: ["لا يطعم المسكين ولا يشجع الآخرين على إطعامه", "يطعم المساكين بكثرة وبشكل علني", "يحب مساعدة الفقراء دائماً"], correct: 0 },
-            { q: "عدم إطعام المسكين أو الحث على إطعامه يدل على:", options: ["قوة الشخصية", "شدة البخل وخلو القلب من الرحمة", "حب التوفير والاقتصاد"], correct: 1 },
-            { q: "ما معنى كلمة {ويل} في قوله تعالى {فويل للمصلين}؟", options: ["كلمة ترحيب وفرح", "كلمة وعيد وتخويف أو واد في جهنم", "كلمة شكر وتقدير"], correct: 1 },
-            { q: "من هم المصلون الذين هم عن صلاتهم {ساهون}؟", options: ["الذين ينسون سهواً بسيطاً داخل الصلاة", "الذين يغفلون عنها فيؤخرونها عن وقتها تهاوناً أو يتركونها بالكلية", "الذين يصلون بخشوع وتأنٍ تام"], correct: 1 },
-            { q: "السهو المذموم الذي حذرت منه السورة هو:", options: ["النسيان العابر أثناء الصلاة", "الغفلة عن الصلاة وتأخيرها تهاوناً", "قراءة سورة قصيرة بعد الفاتحة"], correct: 1 },
-            { q: "ما معنى قوله تعالى {الذين هم يراءون}؟", options: ["يصلون ويصدقون رياءً ليراهم الناس ويمدحوهم وليس إخلاصاً لله", "يخلصون العبادة لله وحده في السر", "ينظرون في المرآة كثيراً"], correct: 0 },
-            { q: "ما هو 'الرياء' المذموم في الدين？", options: ["الصدق في المعاملة", "فعل العبادة من أجل لفت أنظار الناس ومدحهم", "حب مساعدة الجيران في السر"], correct: 1 },
-            { q: "ما هو {الماعون} كما فسرته السورة؟", options: ["اسم جبل شاهق في مكة", "كل ما يستعان به في حوائج البيت كالأدوات والملح والماء", "اسم نهر عذب في الجنة"], correct: 1 },
-            { q: "الذي يمنع المساعدة البسيطة والأدوات عن جيرانه يصفه القرآن بأنه يمنع:", options: ["الماعون", "الزكاة", "الصدقة الكبرى"], correct: 0 },
-            { q: "تربط سورة الماعون صحة الإيمان الحقيقي بـ:", options: ["جمع الأموال وبناء البيوت", "إكرام اليتيم وإطعام المساكين ومساعدة المحتاجين", "السفر الكثير للتجارة"], correct: 1 },
-            { q: "سورة الماعون تمثل 'ميزاناً' للمؤمن يختبر به:", options: ["قوة عضلاته وجسده", "إخلاصه لله وبراءته من النفاق والرياء", "سرعته في القراءة والكتابة"], correct: 1 },
-            { q: "مبدأ التكافل ومساعدة الآخرين بأبسط الأشياء نتعلمه من كلمة:", options: ["الماعون", "يدع", "ساهون"], correct: 0 },
-            { q: "ما الذي تذمه وتنهى عنه سورة الماعون في العبادات؟", options: ["الخشوع والطمأنينة", "الرياء والنفاق والغفلة عن الصلاة في وقتها", "التبسم وطلاقة الوجه"], correct: 1 },
+            // سورة الحج وآياتها وتفسيرها
+            { q: "من النبي الذي أمره الله -عز وجل- أن يُؤذن في الناس بالحج؟", options: ["سيدنا عيسى عليه السلام", "سيدنا موسى عليه السلام", "سيدنا إبراهيم عليه السلام"], correct: 2, sticker: " Prophet" },
+            { q: "ما معنى قوله تعالى {يأتوك رجالاً} في آيات الحج؟", options: ["يأتونك مشاة على أقدامهم تواضعاً لله", "يأتونك راكبين سيارات سريعة", "يأتونك طائرين في الهواء"], correct: 0, sticker: "🚶" },
+            { q: "ما معنى قوله تعالى {وعلى كل ضامر}؟", options: ["راكبين على خيول سريعة جداً", "راكبين على إبل نحيفة وضعيفة من طول التعب والسفر", "راكبين على أفيال ضخمة"], correct: 1, sticker: "🐫" },
+            { q: "ما معنى {من كل فج عميق}؟", options: ["من كل طريق بعيد وواسع", "من داخل مياه البحر العميقة", "من فوق الجبال العالية فقط"], correct: 0, sticker: "🗺️" },
+            { q: "ما هي 'الأيام المعلومات' المذكورة في سورة الحج؟", options: ["أيام شهر رمضان المبارك", "أيام العشر من ذي الحجة أو أيام التشريق", "أيام عيد الفطر السعيد"], correct: 1, sticker: "📅" },
+            { q: "بهيمة الأنعام التي ذكرها الله ورزقنا إياها تشمل:", options: ["الإبل والبقر والغنم", "الأسماك والطيور المائية", "السباع والحيوانات المفترسة"], correct: 0, sticker: "🐑" },
+            { q: "تكملة الآية الكريمة: {فَكُلُوا مِنْهَا وَأَطْعِمُوا الْبَائِسَ...}", options: ["الغني القوي", "الفقير المحتاج", "المسافر القريب"], correct: 1, sticker: "🥣" },
+            { q: "ما معنى قوله تعالى {ثم ليقضوا تفثهم}؟", options: ["أن يناموا ويرتاحوا من تعب الحج", "أن يزيلوا أوساخهم وشعثهم كحلق الرأس وتقليم الأظافر", "أن يشتروا ملابس وهدايا جديدة ليرجعوا بها"], correct: 1, sticker: "✂️" },
+            { q: "لماذا سُمي البيت الحرام بالبيت 'العتيق'؟", options: ["لأنه أقدم البيوت وأعتقها، أو لأنه أعتق من الغرق", "لأنه مبني من الطوب القديم جداً", "لأنه صغير الحجم مقارنة بغيره"], correct: 0, sticker: "🕋" },
+            { q: "ما هو 'قول الزور' الذي حذرنا الله منه واجتنابه؟", options: ["قول الصدق دائماً", "الكذب وشهادة الزور والقول الباطل", "الكلام بصوت منخفض جداً"], correct: 1, sticker: "🚫" },
+            { q: "ما هي الأوثان التي أمرنا الله باجتنابها {فاجتنبوا الرجس من الأوثان}؟", options: ["الأصنام التي تُعبد من دون الله وهي قمة القذارة والشرك", "أماكن الصلاة والمساجد", "جبال مكة المشهورة"], correct: 0, sticker: "🗿" },
+            { q: "أحل الله لنا بهيمة الأنعام إلا ما يتلى علينا تحريمه في آيات أخرى مثل:", options: ["الميتة والدم ولحم الخنزير", "لحم الخروف والماعز", "لحم الإبل والبقر الطبيعي"], correct: 0, sticker: "🥩" },
+            { q: "معنى كلمة {فج} في قوله تعالى {من كل فج عميق}:", options: ["الطريق بين جبلين", "البئر العميقة جداً", "الصحراء الواسعة"], correct: 0, sticker: "⛰️" },
+            { q: "النداء للحج الذي نادى به سيدنا إبراهيم عليه السلام استجاب له:", options: ["أهل مكة فقط في ذلك الوقت", "كل من كتب الله له الحج إلى يوم القيامة", "الملائكة فقط"], correct: 1, sticker: "📢" },
+            { q: "ما هي المنافع الدنيوية للحجاج المذكورة في {ليشهدوا منافع لهم}؟", options: ["التجارة واللقاءات والمصالح الدنيوية", "اللعب والترفيه طوال الوقت", "شراء الملابس الملونة فقط"], correct: 0, sticker: "🤝" },
+            { q: "ما هي المنافع الأخروية للحجاج المذكورة في {ليشهدوا منافع لهم}؟", options: ["غفران الذنوب ونيل رضا الله والجنة", "الحصول على ميداليات ذهبية", "التفاخر والرياء بين الناس"], correct: 0, sticker: "✨" },
+            { q: "تكرار التكبير والتهليل وذكر الله يكون عند:", options: ["النوم مبكراً", "ذبح الهدايا والأضاحي شكراً لله", "شراء بضائع جديدة من مكة"], correct: 1, sticker: "🐐" },
+            { q: "إطعام البائس الفقير من الأضحية يعلم الأطفال والمسلمين خلق:", options: ["البخل والشح", "الرحمة والتكافل ومساعدة المحتاجين", "الكسل والخمول"], correct: 1, sticker: "❤️" },
 
-            // حديث حسن الخلق
-            { q: "من هو راوي حديث (إن من أحبكم إليّ وأقربكم مني مجلساً...)؟", options: ["جابر بن عبد الله رضي الله عنه", "أبو هريرة رضي الله عنه", "عثمان بن عفان رضي الله عنه"], correct: 0 },
-            { q: "من هم أقرب الناس مجلساً من النبي ﷺ يوم القيامة؟", options: ["أكثرهم مالاً وشهرة", "أحاسنهم أخلاقاً", "أطولهم قامة وأقواهم جسداً"], correct: 1 },
-            { q: "ما هو المعيار الحقيقي للقرب من النبي ﷺ يوم القيامة؟", options: ["كثرة الكلام ولفت الأنظار", "حسن الخلق وحسن التعامل مع الناس", "شراء الملابس الغالية"], correct: 1 },
-            { q: "حسن الخلق يشمل كف الأذى، وبذل المعروف، وطلاقة الوجه، والصبر على الناس:", options: ["عبارة صحيحة", "عبارة خاطئة"], correct: 0 },
-            { q: "ما معنى 'كف الأذى' كجزء من حسن الخلق؟", options: ["عدم إيذاء الآخرين بالقول أو الفعل", "مساعدة الأصدقاء في الدراسة فقط", "الابتسامة الدائمة"], correct: 0 },
-            { q: "ما معنى 'طلاقة الوجه' في التعامل اليومي؟", options: ["مقابلة الناس بوجه مبتسم وبشوش دائماً", "النظر إلى الأرض باستمرار", "الغضب وعدم التحدث مع أحد"], correct: 0 },
-            { q: "أعلى درجات الجنة تكون من نصيب من تميز بـ:", options: ["كثرة النوم والراحة", "حسن الخلق لأنه يشتمل على خصال البر", "كثرة تبديل الملابس لشهرتها"], correct: 1 },
-            { q: "الجزاء من جنس العمل؛ فمن ألان جانبه للناس في الدنيا كان جزاؤه:", options: ["الحصول على هدايا مادية من الناس", "القرب والمحبة من النبي ﷺ يوم القيامة", "البقاء في مكان بعيد في الجنة"], correct: 1 },
-            { q: "من تعالى على الناس بلسانه أو قلبه يعاقب يوم القيامة بـ:", options: ["البعد عن النبي ﷺ", "زيادة محبة الناس له", "عدم الكلام مطلقاً"], correct: 0 },
-            { q: "ما هو السلوك النبوي الصحيح في الكلام والتحدث؟", options: ["الاقتصاد في الكلام واختيار أحسنه والابتعاد عن التكلف", "الكلام المستمر بدون توقف وبصوت مرتفع للغاية", "تجنب التحدث مع أي شخص نهائياً"], correct: 0 },
-            { q: "لماذا يحثنا الإسلام على الابتعاد عن التكلف في الكلام؟", options: ["لأنه يسبب الإرهاق للسان", "لكي لا يكون الهدف لفت الأنظار والرياء والتعالي", "لأنه ينسي الإنسان ما يريد قوله"], correct: 1 },
-            { q: "حسن الخلق يشتمل على جميع خصال:", options: ["الشر والأذى", "البر والخير الكلي", "الكسل والتراخي"], correct: 1 },
-            { q: "رواه الترمذي وقال عن حديث حسن الخلق بأنه حديث:", options: ["ضعيف جداً", "حسن", "متروك"], correct: 1 },
-            { q: "ما معنى 'بذل المعروف'؟", options: ["تقديم الخير ومساعدة الآخرين بكل الطرق الممكنة", "أخذ أدوات الزملاء دون علمهم", "الجلوس بمفردنا دائماً"], correct: 0 },
-            { q: "الصبر على الناس وتحمل أخطائهم يعد مظهراً من مظاهر:", options: ["الضعف والخوف", "حسن الخلق الرفيع", "عدم الاهتمام بالآخرين"], correct: 1 },
+            // حديث أفضل الأعمال والتلبية
+            { q: "من هو راوي حديث (أي الأعمال أفضل؟)؟", options: ["عثمان بن عفان رضي الله عنه", "أبو هريرة رضي الله عنه", "جابر بن عبد الله رضي الله عنه"], correct: 1, sticker: "📜" },
+            { q: "ما هو أفضل عمل على الإطلاق كما رتبه النبي ﷺ في الحديث؟", options: ["جهاد في سبيل الله", "إيمان بالله ورسوله", "حج مبرور"], correct: 1, sticker: "🥇" },
+            { q: "لماذا يعتبر الإيمان بالله ورسوله هو العمل الأفضل على الإطلاق؟", options: ["لأنه سهل جداً ولا يتطلب فعلاً", "لأنه الأساس والشرط لقبول وصحة جميع العبادات", "لأنه لا يراه أحد من الناس"], correct: 1, sticker: "🌱" },
+            { q: "ما هو الترتيب الصحيح للأعمال الثلاثة الفاضلة في الحديث الشريف؟", options: ["إيمان بالله ورسوله، ثم جهاد في سبيل الله، ثم حج مبرور", "حج مبرور، ثم إيمان بالله، ثم جهاد في سبيل الله", "جهاد في سبيل الله، ثم حج مبرور، ثم إيمان بالله"], correct: 0, sticker: "🔢" },
+            { q: "ما معنى 'الجهاد في سبيل الله' كما جاء في الحديث؟", options: ["بذل الجهد والطاقة بالنفس والمال والكلمة لحماية الدين والوطن وإعلاء كلمة الله", "البقاء في المنزل دون عمل", "السفر للسياحة والترفيه"], correct: 0, sticker: "🛡️" },
+            { q: "ما هو 'الحج المبرور'؟", options: ["الحج الذي يذهب فيه الشخص للشهرة والرياء", "الحج المقبول الذي لا تخالطه معصية ولا رياء فيه", "الحج السريع جداً بدون تعب"], correct: 1, sticker: "🕊️" },
+            { q: "ما هي علامة الحج المبرور بعد عودة الحاج لبلده؟", options: ["أن يرجع أفضل حالاً ويقبل على الآخرة ويزهد في المعاصي", "أن يشتري بيتاً كبيراً جداً", "أن يصبح فخوراً على الناس ويلقب نفسه بالبطل"], correct: 0, sticker: "🌟" },
+            { q: "ما هو جهاد النساء كما أخبر النبي ﷺ في حديث آخر؟", options: ["الجهاد بالكلمة", "الحج المبرور", "العمل في الأسواق"], correct: 1, sticker: "🌸" },
+            { q: "ما هو نص التلبية الذي يردده الحجاج بصوت واحد؟", options: ["سبحان الله وبحمده، سبحان الله العظيم", "لبيك اللهم لبيك، لبيك لا شريك لك لبيك...", "لا إله إلا الله وحده لا شريك له..."], correct: 1, sticker: "🗣️" },
+            { q: "في التلبية نقول: {إن الحمد والنعمة لك و...}", options: ["المال", "الولد", "الملك"], correct: 2, sticker: "👑" },
 
-            // دعاء يوم عرفة
-            { q: "ما هو أفضل وخير الدعاء كما أخبر النبي ﷺ؟", options: ["دعاء ليلة الجمعة", "دعاء يوم عرفة", "دعاء السفر والترحال"], correct: 1 },
-            { q: "ما هو أفضل ما قاله النبي ﷺ والنبيون من قبله؟", options: ["الحمد لله رب العالمين دائماً وأبداً", "لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير", "سبحان الله العظيم وبحمده تبارك اسمه"], correct: 1 },
-            { q: "يوم عرفة هو يوم يباهي الله فيه بأهل الأرض أمام أهل:", options: ["السماء (الملائكة)", "البحار والأنهار", "الجبال والوديان"], correct: 0 },
-            { q: "يوم عرفة هو من أكثر الأيام تفضلاً بعتق العباد من:", options: ["الأعمال اليومية والواجبات", "النار", "الدراسة والاختبارات"], correct: 1 },
-            { q: "من آداب الدعاء المذكورة 'الإخلاص'، ويعني:", options: ["استحضار القلوب واليقين التام بأن الله سيستجيب", "الدعاء بصوت مرتفع جداً ليسمعه الجميع", "تكرار الكلمات بسرعة بدون تفكير"], correct: 0 },
-            { q: "من آداب الدعاء 'الإلحاح'، ويعني:", options: ["تكرار الطلب ورجاء الله باستمرار وعدم الاستعجال", "الدعاء مرة واحدة فقط ثم التوقف", "تأجيل الدعاء لوقت لاحق دائماً"], correct: 0 },
-            { q: "متى يبدأ وقت الدعاء المخصوص والمبارك في يوم عرفة؟", options: ["من طلوع الفجر وحتى شروق الشمس", "من زوال الشمس وقت الظهر وحتى غروبها", "بعد منتصف الليل فقط"], correct: 1 },
-            { q: "ما هو وقت 'العشية' المؤكد للدعاء والابتهال في يوم عرفة؟", options: ["وقت الصباح الباكر وقبل الظهر", "الوقت الممتد ما قبل الغروب بقليل", "وقت الليل المتأخر"], correct: 1 },
-            { q: "كلمة 'التهليل' تعني قول:", options: ["الحمد لله", "لا إله إلا الله", "الله أكبر"], correct: 1 },
-            { q: "كلمة 'التسبيح' تعني قول:", options: ["أستغفر الله", "سبحان الله", "لا حول ولا قوة إلا بالله"], correct: 1 },
-            { q: "في يوم عرفة المبارك يجتهد المسلم بالدعاء لنفسه ولوالديه ولجميع المسلمين:", options: ["صح", "خطأ"], correct: 0 },
-            { q: "استحضار القلب واليقين بالإجابة شرط أساسي لـ:", options: ["النوم الهادئ", "قبول واستجابة الدعاء بإذن الله", "الحصول على الدرجات دون دراسة"], correct: 1 },
-            { q: "ما معنى 'يباهي الله بهم ملائكته'؟", options: ["يظهر فضلهم وعبادتهم ويفتخر بوقوفهم وطاعتهم أمام الملائكة", "يغضب من تواجدهم في عرفة", "يأمرهم بالعودة إلى بيوتهم فوراً"], correct: 0 },
-            { q: "في جملة 'له الملك وله الحمد' نقرّ بأن الملك والثناء كله لـ:", options: ["ملوك ورؤساء الأرض", "الله وحده سبحانه وتعالى", "عامة الناس المخلوقين"], correct: 1 },
-            { q: "الدعاء والاجتهاد في يوم عرفة مبارك ومستحب لـ:", options: ["الحجاج المتواجدين في مكة فقط", "الحاج وغير الحاج في كل بقاع الأرض", "الأطفال الصغار دون الكبار"], correct: 1 }
+            // مناسك الحج الـ 12 بالتفصيل وبشكل مبسط
+            { q: "ما هو المنسك الأول (رقم 1) الذي يبدأ به الحاج حجه؟", options: ["طواف القدوم", "الإحرام (بالتطهر وارتداء ملابس الإحرام البيضاء)", "الوقوف بعرفة"], correct: 1, sticker: "1️⃣" },
+            { q: "ما هو المنسك الثاني (رقم 2) الذي يؤديه الحاج عند وصوله لمكة؟", options: ["السعي بين الصفا والمروة", "طواف القدوم حول الكعبة 7 مرات وشرب ماء زمزم", "المبيت بمنى"], correct: 1, sticker: "2️⃣" },
+            { q: "ماذا يفعل الحاج بعد الانتهاء من طواف القدوم؟", options: ["ينام مباشرة في الفندق", "يشرب من ماء زمزم المبارك", "يغادر مكة فوراً"], correct: 1, sticker: "💧" },
+            { q: "ما هو المنسك الثالث (رقم 3) ويكون بين جبلين مشهورين؟", options: ["المبيت بمزدلفة", "السعي بين الصفا والمروة سبعة أشواط", "رمي الجمرات"], correct: 1, sticker: "3️⃣" },
+            { q: "السعي بين الصفا والمروة يتكون من كم شوط؟", options: ["٣ أشواط", "٥ أشواط", "٧ أشواط"], correct: 2, sticker: "🏃" },
+            { q: "ما هو المنسك الرابع (رقم 4) ويسمى يومه بيوم التروية؟", options: ["الوقوف بعرفة", "المبيت في منى", "طواف الوداع"], correct: 1, sticker: "4️⃣" },
+            { q: "في أي يوم يبيت الحجاج في منى (يوم التروية)؟", options: ["اليوم الثامن من ذي الحجة", "اليوم التاسع من ذي الحجة", "اليوم العاشر من ذي الحجة"], correct: 0, sticker: "🏕️" },
+            { q: "ما هو المنسك الخامس (رقم 5) الذي يمثل أعظم مناسك الحج؟", options: ["المبيت بمزدلفة", "الوقوف بعرفات (يوم التاسع من ذي الحجة)", "طواف الإفاضة"], correct: 1, sticker: "5️⃣" },
+            { q: "ما هو وقت الوقوف بعرفة الصحيح؟", options: ["من غروب شمس يوم عرفة حتى الصباح", "من طلوع شمس اليوم التاسع حتى فجر يوم النحر", "في وقت الظهر فقط لمدة ساعة"], correct: 1, sticker: "☀️" },
+            { q: "ما هو المنسك السادس (رقم 6) بعد النزول من عرفة؟", options: ["المبيت في مزدلفة وجمع الجمار (الحصى)", "ذبح الهدي", "طواف الوداع"], correct: 0, sticker: "6️⃣" },
+            { q: "ماذا يجمع الحجاج من مزدلفة لرمي الجمرات؟", options: ["قطع خشبية صغيرة", "الحصى الصغير (الجمار)", "أزهار برية"], correct: 1, sticker: "🪨" },
+            { q: "ما هو المنسك السابع (رقم 7) في يوم 10 ذي الحجة (أول أيام العيد)؟", options: ["رمي جمرة العقبة بـ 7 حصيات", "طواف الوداع", "المبيت في منى"], correct: 0, sticker: "7️⃣" },
+            { q: "ما هو المنسك الثامن (رقم 8) وفيه نذبح الأضحية شكراً لله؟", options: ["الحلق أو التقصير", "الهدي (ذبح الأضحية ويسمى يوم النحر)", "طواف الإفاضة"], correct: 1, sticker: "8️⃣" },
+            { q: "ما هو المنسك التاسع (رقم 9) بعد ذبح الهدي للرجال؟", options: ["الحلق (حلاقة الرأس بالكامل) أو التقصير", "صباغة الشعر بألوان زاهية", "تمشيط الشعر وتركه طويلاً"], correct: 0, sticker: "9️⃣" },
+            { q: "ماذا تفعل النساء في المنسك التاسع (الحلق أو التقصير)؟", options: ["يحلقن رؤوسهن بالكامل مثل الرجال", "يقصرن من شعرهن جزءاً بسيطاً فقط", "لا يفعلن شيئاً للشعر"], correct: 1, sticker: "💇‍♀️" },
+            { q: "ما هو المنسك العاشر (رقم 10) حيث يعود الحجاج لمكة للطواف حول الكعبة؟", options: ["طواف القدوم", "طواف الإفاضة", "طواف الوداع"], correct: 1, sticker: "🔟" },
+            { q: "ما هو المنسك الحادي عشر (رقم 11) في باقي أيام العيد؟", options: ["المبيت في مزدلفة مجدداً", "العودة إلى منى لرمي الجمرات الثلاث", "السعي بين الصفا والمروة مرة أخرى"], correct: 1, sticker: "1️⃣1️⃣" },
+            { q: "ما هو المنسك الثاني عشر والأخير (رقم 12) من مناسك الحج؟", options: ["طواف الإفاضة", "طواف الوداع قبل مغادرة مكة", "الإحرام ثانية"], correct: 1, sticker: "1️⃣2️⃣" },
+            { q: "ما حكم طواف الوداع في الحج كما جاء في الملف؟", options: ["فرض ركن", "سُنّة", "مكروه"], correct: 1, sticker: "📜" },
+            { q: "يسمى يوم العاشر من ذي الحجة (أول أيام العيد) بـ:", options: ["يوم التروية", "يوم النحر", "يوم عرفة"], correct: 1, sticker: "🐑" },
+            { q: "يُظهر سؤال الصحابة للنبي ﷺ عن الأعمال الفاضلة حرصهم على:", options: ["التجارة وجمع الأموال", "التقرب إلى الله ودخول الجنة سريعاً", "الشهرة والتفاخر بين الناس"], correct: 1, sticker: "💎" },
+            { q: "تنوع العبادات بين قلبي (إيمان)، وبدني (جهاد)، ومالي بدني (حج) يفتح الأبواب لـ:", options: ["الجميع للتنافس حسب قدرتهم واستطاعتهم", "الأغنياء فقط دون الفقراء", "الأقوياء بدنياً فقط"], correct: 0, sticker: "🧩" }
         ];
 
         let selectedQuestions = [];
@@ -213,7 +214,6 @@
         let score = 0;
         let studentName = "";
 
-        // دالة لعرض رسائل التنبيه المخصصة بدلاً من alert
         function showCustomAlert(title, message) {
             document.getElementById('alert-title').innerText = title;
             document.getElementById('alert-message').innerText = message;
@@ -227,20 +227,19 @@
         function startQuiz() {
             studentName = document.getElementById('student-name').value.trim();
             if (!studentName) {
-                showCustomAlert("اسم الطالب مطلوب", "من فضلك اكتب اسمك الرباعي يا بطل لتسجيل النتيجة!");
+                showCustomAlert("اسم البطل مطلوب", "من فضلك اكتب اسمك الرباعي يا بطل لتسجيل النتيجة في لوحة الشرف!");
                 return;
             }
 
-            // التحقق من أن الطالب لم يختبر من قبل لضمان المحاولة الواحدة
-            if (localStorage.getItem('quiz_v3_done_' + studentName)) {
-                showCustomAlert("محاولة مكررة", `عذراً يا ${studentName}، لقد قمت بإنهاء هذا الاختبار مسبقاً! ولا يمكن تكراره مرة أخرى.`);
+            // منع تكرار المحاولة لنفس الاسم لزيادة الجدية والتركيز
+            if (localStorage.getItem('quiz_hajj_done_' + studentName)) {
+                showCustomAlert("محاولة مكررة", `عذراً يا بطل ${studentName}، لقد قمت بإنهاء هذا الاختبار مسبقاً! ولا يمكن تكراره لضمان العدالة.`);
                 return;
             }
 
-            // خلط الـ 50 سؤالاً واختيار 10 عشوائياً منها
+            // اختيار 10 أسئلة عشوائية من الـ 50
             selectedQuestions = shuffleArray([...quizQuestions]).slice(0, 10);
             
-            // الانتقال لواجهة الاختبار
             document.getElementById('login-screen').classList.add('hidden');
             document.getElementById('quiz-screen').classList.remove('hidden');
             
@@ -251,14 +250,15 @@
             const q = selectedQuestions[currentQuestionIndex];
             document.getElementById('progress-text').innerText = `${currentQuestionIndex + 1} / 10`;
             document.getElementById('question-text').innerText = q.q;
+            document.getElementById('question-sticker').innerText = q.sticker || "💡";
             
             const grid = document.getElementById('options-grid');
             grid.innerHTML = '';
             
             q.options.forEach((opt, i) => {
                 const btn = document.createElement('button');
-                btn.className = "option-card w-full p-5 text-right bg-white border-2 border-gray-100 rounded-2xl transition-all text-lg font-bold text-gray-700 shadow-sm";
-                btn.innerText = opt;
+                btn.className = "option-card w-full p-5 text-right bg-white border-2 border-gray-100 rounded-2xl transition-all text-lg font-bold text-gray-700 shadow-sm flex items-center justify-between";
+                btn.innerHTML = `<span>${opt}</span><span class="text-xl opacity-0 transition-opacity" id="check-${i}">✔️</span>`;
                 btn.onclick = () => checkAnswer(i);
                 grid.appendChild(btn);
             });
@@ -268,8 +268,11 @@
             const q = selectedQuestions[currentQuestionIndex];
             const btns = document.getElementById('options-grid').children;
             
-            // تعطيل كافة الأزرار فوراً لمنع الطالب من تغيير الإجابة أو إعادة الضغط
+            // قفل الإجابات فوراً لمنع التعديل
             for (let b of btns) b.disabled = true;
+
+            const checkIcon = document.getElementById(`check-${idx}`);
+            if (checkIcon) checkIcon.classList.remove('opacity-0');
 
             if (idx === q.correct) {
                 btns[idx].classList.add('bg-green-100', 'border-green-500', 'text-green-700');
@@ -278,9 +281,10 @@
             } else {
                 btns[idx].classList.add('bg-red-100', 'border-red-500', 'text-red-700');
                 btns[q.correct].classList.add('bg-green-100', 'border-green-500', 'text-green-700');
+                const correctCheck = document.getElementById(`check-${q.correct}`);
+                if (correctCheck) correctCheck.classList.remove('opacity-0');
             }
 
-            // الانتقال للسؤال التالي بعد ثانية ونصف لرؤية التقييم
             setTimeout(() => {
                 currentQuestionIndex++;
                 if (currentQuestionIndex < 10) {
@@ -288,7 +292,7 @@
                 } else {
                     finalize();
                 }
-            }, 1500);
+            }, 1600);
         }
 
         function finalize() {
@@ -302,30 +306,29 @@
             const resTxt = document.getElementById('result-text');
             const emoji = document.getElementById('result-emoji');
             
-            // هنا تم كتابة اسم الطالب بعد كلمات الثناء والإطراء مباشرة
+            // كتابة اسم الطالب بعد الإطراء والمدح مباشرة
             if (pct >= 90) {
                 title.innerText = `رائع وعبقري حقيقي يا ${studentName}! 👑`;
-                resTxt.innerText = `لقد حصلت على درجة ممتازة وتستحق لقب سفير الأخلاق الحَسنة والقدوة الحسنة.`;
+                resTxt.innerText = `أنت بحق نجم ساطع في سماء المعرفة الإسلامية! لقد أجبت على الأسئلة ببراعة خارقة وتستحق وسام التميز الأكبر لرحلة الحج! 🏅`;
                 emoji.innerText = "👑";
             } else if (pct >= 70) {
-                title.innerText = `أحسنت يا ${studentName}! ⭐`;
-                resTxt.innerText = `عمل مميز للغاية! إجاباتك تدل على تركيزك الجيد وفهمك العميق للدروس. استمر هكذا!`;
+                title.innerText = `أحسنت يا بطل الحج المميز ${studentName}! ⭐`;
+                resTxt.innerText = `إجاباتك رائعة ومبشرة جداً! هذا يدل على تركيزك واهتمامك البالغ بتعلم مناسك الحج المباركة. استمر في هذا التفوق دائماً!`;
                 emoji.innerText = "⭐";
             } else if (pct >= 50) {
-                title.innerText = `محاولة جيدة يا ${studentName}! 👍`;
-                resTxt.innerText = `نتيجتك متوسطة ولكنك تستطيع أن تصبح أفضل بكثير بمراجعة بسيطة للملف.`;
+                title.innerText = `محاولة جيدة وعمل رائع يا ${studentName}! 👍`;
+                resTxt.innerText = `لقد اجتزت الاختبار بنجاح، ومستواك ممتاز! ولكننا نطمح دائماً للأفضل، قم بمراجعة بسيطة للملف لتصل إلى الدرجة الكاملة مستقبلاً.`;
                 emoji.innerText = "👍";
             } else {
-                title.innerText = `تحتاج لتركيز إضافي يا ${studentName}! 📚`;
-                resTxt.innerText = `لا تحزن يا بطل، فالعلم يحتاج للصبر والمطالعة الدقيقة. اقرأ الملف بتركيز وستنجح بامتياز قريباً!`;
+                title.innerText = `حاول مجدداً وركز أكثر يا ${studentName}! 📚`;
+                resTxt.innerText = `العلم نور يحتاج للصبر والمطالعة الهادئة. اقرأ ملف آيات ومناسك الحج بتركيز وستحصل على العلامة الكاملة في رحلتك القادمة بكل تأكيد!`;
                 emoji.innerText = "💪";
             }
 
-            // تشغيل حركة رسم دائرة النسبة المئوية
             setTimeout(() => drawCircle(pct), 300);
             
-            // قفل الاختبار لمنع المحاولة مرة أخرى للاسم الحالي
-            localStorage.setItem('quiz_v3_done_' + studentName, true);
+            // قفل المحاولة لاسم الطالب الحالي في المتصفح
+            localStorage.setItem('quiz_hajj_done_' + studentName, true);
         }
 
         function drawCircle(pct) {
@@ -335,17 +338,16 @@
             circle.style.strokeDasharray = `${circumference} ${circumference}`;
             circle.style.strokeDashoffset = circumference - (pct / 100 * circumference);
             
-            // تغيير لون الدائرة بناءً على الدرجة المستحقة
+            // تلوين الدائرة التفاعلية بناءً على المعدل
             if (pct >= 70) {
-                circle.setAttribute('stroke', '#10b981'); // أخضر زاهٍ للإنجاز والتفوق
+                circle.setAttribute('stroke', '#10b981'); // أخضر مبهج للتفوق والنجاح
             } else if (pct >= 50) {
-                circle.setAttribute('stroke', '#f59e0b'); // برتقالي للمستوى المتوسط
+                circle.setAttribute('stroke', '#d97706'); // برتقالي ذهبي للمستوى المتوسط
             } else {
-                circle.setAttribute('stroke', '#ef4444'); // أحمر للحث على إعادة التركيز
+                circle.setAttribute('stroke', '#ef4444'); // أحمر للحث على إعادة المحاولة والتركيز
             }
         }
 
-        // دالة لخلط الأسئلة عشوائياً
         function shuffleArray(arr) {
             for (let i = arr.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
